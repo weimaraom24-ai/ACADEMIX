@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ACADEMIX — Notas</title>
+  <link rel="stylesheet" href="estudiante.css">
+</head>
+<body>
+  <!-- Vista estudiantil de calificaciones y promedio. -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <button id="left-hamburger" class="left-hamburger" aria-label="Abrir menú">☰</button>
+      <div class="brand-container">
+        <a class="brand" href="estudiante.html" aria-label="Inicio ACADEMIX">
+          <img src="logo.jpg" alt="logo Academix">
+          <div class="brand-meta">
+            <span class="brand-name">ACADEMIX</span>
+            <small> Estudiante</small>
+          </div>
+        </a>
+      </div>
+
+      <div class="header-phrase">tu cerebro en su prime</div>
+
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="estudiante.html">Inicio</a></li>
+          <li><a href="guias.html">Guías</a></li>
+          <li><a href="juegos.php">Juegos</a></li>
+          <li><a href="notas.html">Notas</a></li>
+          <li><a href="ayuda.html">Ayuda</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn-logout" type="button" onclick="window.location.href='logout.php'">Salir</button>
+        <button id="btn-menu" class="btn-menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="side-panel" class="side-panel" aria-hidden="true">
+    <button id="side-close" class="side-close" aria-label="Cerrar menú">×</button>
+    <ul>
+      <li><a href="estudiante.html">Inicio</a></li>
+      <li><a href="guias.html">Guías</a></li>
+      <li><a href="juegos.php">Juegos</a></li>
+      <li><a href="notas.html">Notas</a></li>
+      <li><a href="ayuda.html">Ayuda</a></li>
+    </ul>
+  </nav>
+  <div id="side-overlay" class="side-overlay" hidden></div>
+
+  <main class="container">
+    <section class="section">
+      <h1>Notas del Estudiante</h1>
+
+      <div class="panel">
+        <table class="notes-table">
+          <thead>
+            <tr>
+              <th>Materia</th>
+              <th>Nota</th>
+            </tr>
+          </thead>
+         <tbody id="tabla-calificaciones">
+  <tr>
+    <td colspan="2">Cargando calificaciones...</td>
+  </tr>
+</tbody>
+        </table>
+
+        <div class="promedio">
+  Promedio: <strong id="promedio">--</strong>
+</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>ACADEMIX — Plataforma Educativa</small>
+    </div>
+  </footer>
+
+  <footer class="site-footer exotic-footer">
+    <div class="container footer-content">
+      <div class="footer-socials" aria-label="Redes sociales">
+        <a href="https://www.instagram.com/academixproyect?igsh=MTZ6aXBzdzBpaXZhYQ==" target="_blank" rel="noopener noreferrer" class="social-chip instagram" aria-label="Instagram">
+          <span>📸</span>
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.tiktok.com/@proyecto.academix?_r=1&_t=ZS-9853ovSeJce" target="_blank" rel="noopener noreferrer" class="social-chip tiktok" aria-label="TikTok">
+          <span>🎵</span>
+          <span>TikTok</span>
+        </a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=academixof@gmail.com&su=Consulta%20desde%20ACADEMIX&body=Hola%2C%20quiero%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20plataforma." class="social-chip gmail" aria-label="Gmail">
+          <span>✉️</span>
+          <span>Gmail</span>
+        </a>
+        <a href="https://wa.me/573138050529" target="_blank" rel="noopener noreferrer" class="social-chip whatsapp" aria-label="WhatsApp">
+          <span>💬</span>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+
+      <div class="footer-copy">
+        <small>© 2026 ACADEMIX · Todos los derechos reservados</small>
+      </div>
+    </div>
+  </footer>
+
+  <script src="estudiante-app.js"></script>
+  <script src="estudiante-menu.js"></script>
+
+<script>
+
+// Solicita las notas del estudiante y actualiza la tabla y el promedio.
+fetch("listar_calificaciones.php")
+  .then(response => response.json())
+  .then(calificaciones => {
+
+    const tabla = document.getElementById("tabla-calificaciones");
+    const promedioElemento = document.getElementById("promedio");
+
+    tabla.innerHTML = "";
+
+    // Informa cuando el endpoint no devuelve calificaciones.
+    if (calificaciones.length === 0) {
+
+      tabla.innerHTML = `
+        <tr>
+          <td colspan="2">
+            Aún no tienes calificaciones.
+          </td>
+        </tr>
+      `;
+
+      promedioElemento.textContent = "--";
+
+      return;
+    }
+
+    // Acumula las notas para calcular el promedio después de crear las filas.
+    let suma = 0;
+
+    calificaciones.forEach(calificacion => {
+
+      suma += parseFloat(calificacion.nota);
+
+      const fila = document.createElement("tr");
+
+      fila.innerHTML = `
+  <td>
+    ${calificacion.materia}
+    <br>
+    <small>${calificacion.titulo}</small>
+  </td>
+
+  <td>
+    <strong>${parseFloat(calificacion.nota).toFixed(1)}</strong>
+
+    <br><br>
+
+    <small>
+      💬 ${calificacion.comentario || "Sin comentario"}
+    </small>
+  </td>
+`;
+
+      tabla.appendChild(fila);
+
+    });
+
+    const promedio = suma / calificaciones.length;
+
+    promedioElemento.textContent = promedio.toFixed(1);
+
+  })
+  .catch(error => {
+
+    console.error(error);
+
+    document.getElementById("tabla-calificaciones").innerHTML = `
+      <tr>
+        <td colspan="2">
+          Aun no hay calificaciones disponibles :(
+        </td>
+      </tr>
+    `;
+
+  });
+
+</script>
+
+</body>
+</html>

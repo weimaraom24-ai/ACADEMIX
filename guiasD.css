@@ -1,0 +1,111 @@
+/* Hoja heredada de la gestión docente de guías y tarjetas disponibles. */
+body {
+    background-color: lightblue;
+}
+
+.barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 6cqmax; /* antes 150px */
+  background-color: rgb(100, 175, 201);
+}
+
+.menu {
+  display: flex;
+  gap: 60px; /* antes 340px */
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600; /* 5000 no es válido */
+  font-size: 40px; /* antes 150px */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.logo img {
+  width: 120px; /* antes 350px */
+}
+
+body{
+    background-color: lightblue;
+}
+
+.guias-docentes {
+  padding: 80px 20px;
+  background: rgb(148, 195, 211);
+  text-align: center;
+}
+
+.guias-docentes h1 {
+  font-size: 40px;
+  color:  blue;
+  margin-bottom: 15px;
+}
+
+.intro {
+  color: blue;
+  margin-bottom: 50px;
+  font-size: 18px;
+}
+
+.card {
+  max-width: 700px;
+  margin: 30px auto;
+  background: white;
+  padding: 35px;
+  border-radius: 25px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  text-align: left;
+}
+
+.card h2 {
+  margin-bottom: 20px;
+  color: #1e3c72;
+}
+
+select,
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 20px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 12px;
+  background-color: #1e3c72;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #2a5298;
+}
+
+.guia-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 10px;
+  background: #f4f7fc;
+  border-radius: 12px;
+}
+
+.guia-item .ver {
+  background-color: #28a745;
+}
+
+.guia-item .ver:hover {
+  background-color: #218838;
+}

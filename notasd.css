@@ -1,0 +1,87 @@
+/* Estilos heredados para el formulario antiguo de registro de notas docente. */
+body {
+    background-color: lightblue;
+}
+
+.barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 6cqmax; /* antes 150px */
+  background-color: rgb(100, 175, 201);
+}
+
+.menu {
+  display: flex;
+  gap: 60px; /* antes 340px */
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600; /* 5000 no es válido */
+  font-size: 40px; /* antes 150px */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.logo img {
+  width: 120px; /* antes 350px */
+}
+
+.seccion-notas {
+  padding: 80px 20px;
+  background: lightblue;
+  text-align: center;
+}
+
+.seccion-notas h1 {
+  font-size: 38px;
+  margin-bottom: 40px;
+  color: #1e3c72;
+}
+
+.form-notas {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.form-notas label {
+  font-weight: 600;
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+
+.form-notas input,
+.form-notas select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+.form-notas button {
+  width: 100%;
+  padding: 12px;
+  background-color: #1e3c72;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.form-notas button:hover {
+  background-color: #2a5298;
+}

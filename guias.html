@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ACADEMIX — Guías</title>
+  <meta name="description" content="Consulta las guías de estudio de ACADEMIX.">
+  <link rel="stylesheet" href="estudiante.css">
+  <link rel="stylesheet" href="guia-entrega.css">
+</head>
+<body>
+  <!-- Página estudiantil que muestra los materiales publicados desde la base de datos. -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <div class="header-start">
+        <button id="left-hamburger" class="left-hamburger" aria-label="Abrir menú">☰</button>
+        <div class="brand-container">
+          <a class="brand" href="estudiante.html" aria-label="Inicio ACADEMIX">
+            <img src="logo.jpg" alt="Logo ACADEMIX">
+            <div class="brand-meta"><span class="brand-name">ACADEMIX</span><small>Estudiante</small></div>
+          </a>
+        </div>
+      </div>
+      <div class="header-phrase">tu cerebro en su prime</div>
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="estudiante.html">Inicio</a></li>
+          <li><a class="active" href="guias.html">Guías</a></li>
+          <li><a href="juegos.php">Juegos</a></li>
+          <li><a href="notas.html">Notas</a></li>
+          <li><a href="ayuda.html">Ayuda</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-logout" type="button" onclick="window.location.href='logout.php'">Salir</button>
+        <button id="btn-menu" class="btn-menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="side-panel" class="side-panel" aria-hidden="true">
+    <button id="side-close" class="side-close" aria-label="Cerrar menú">×</button>
+    <ul>
+      <li><a href="estudiante.html">Inicio</a></li>
+      <li><a class="active" href="guias.html">Guías</a></li>
+      <li><a href="juegos.php">Juegos</a></li>
+      <li><a href="notas.html">Notas</a></li>
+      <li><a href="ayuda.html">Ayuda</a></li>
+    </ul>
+  </nav>
+  <div id="side-overlay" class="side-overlay" hidden></div>
+
+  <!-- El listado se llena en el navegador usando listar_guias.php. -->
+  <main class="container">
+    <section class="section">
+      <h1>Guías académicas</h1>
+      <p class="lead">Consulta y descarga los materiales disponibles por asignatura.</p>
+      <p id="mensaje-entrega" class="mensaje-entrega" role="status" aria-live="polite" hidden></p>
+      <div id="lista-guias" class="cards" aria-live="polite">
+        <p>Cargando guías...</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><small>ACADEMIX — Plataforma Educativa</small></div>
+  </footer>
+
+  <script src="estudiante-app.js"></script>
+  <script>
+    const mensajesEntrega = {
+      ok: "Trabajo enviado correctamente.",
+      ya_entregada: "Ya enviaste un trabajo para esta guía.",
+      archivo_requerido: "Selecciona un archivo antes de enviar.",
+      formato_invalido: "Solo se permiten archivos PDF, DOC o DOCX.",
+      archivo_grande: "El archivo supera el máximo permitido de 10 MB.",
+      grado_no_coincide: "Esta guía no corresponde a tu grado.",
+      guia_invalida: "No se encontró la guía seleccionada.",
+      error_guardado: "No se pudo guardar la entrega. Intenta nuevamente.",
+      solicitud_invalida: "No se pudo procesar la solicitud. Intenta desde la lista de guías."
+    };
+    const estadoEntrega = new URLSearchParams(window.location.search).get("entrega");
+    if (estadoEntrega && mensajesEntrega[estadoEntrega]) {
+      const aviso = document.getElementById("mensaje-entrega");
+      aviso.textContent = mensajesEntrega[estadoEntrega];
+      aviso.hidden = false;
+      if (estadoEntrega === "ok") aviso.classList.add("entrega-exitosa");
+    }
+
+    // Solicita las guías y crea una tarjeta para cada resultado recibido.
+    fetch("listar_guias.php")
+      .then(respuesta => {
+        if (!respuesta.ok) throw new Error("No se pudieron cargar las guías.");
+        return respuesta.json();
+      })
+      .then(guias => {
+        const lista = document.getElementById("lista-guias");
+        lista.replaceChildren();
+
+        if (!guias.length) {
+          lista.textContent = "No hay guías disponibles todavía.";
+          return;
+        }
+
+        guias.forEach(guia => {
+          const tarjeta = document.createElement("article");
+          const materia = document.createElement("p");
+          const titulo = document.createElement("h2");
+          const enlace = document.createElement("a");
+          const descripcion = document.createElement("p");
+
+          tarjeta.className = "card guia-estudiante-card";
+          materia.textContent = guia.materia || "Material de estudio";
+          titulo.textContent = guia.titulo || "Guía académica";
+          descripcion.className = "muted";
+          descripcion.textContent = guia.descripcion || "Descarga la guía y envía tu trabajo cuando esté listo.";
+          enlace.className = "btn-primary";
+          enlace.href = guia.archivo;
+          enlace.target = "_blank";
+          enlace.rel = "noopener noreferrer";
+          enlace.textContent = "Ver guía";
+
+          tarjeta.append(materia, titulo, descripcion, enlace);
+
+          if (guia.entrega_id) {
+            const estado = document.createElement("p");
+            estado.className = "entrega-registrada";
+            const calificacion = guia.nota_entrega === null || guia.nota_entrega === ""
+              ? "Calificación pendiente"
+              : `Calificación: ${Number(guia.nota_entrega).toFixed(1)} / 5.0`;
+            estado.textContent = guia.fecha_entrega
+              ? `Trabajo enviado: ${guia.fecha_entrega} · ${calificacion}`
+              : calificacion;
+            tarjeta.appendChild(estado);
+          } else {
+            const formulario = document.createElement("form");
+            const idGuia = document.createElement("input");
+            const etiquetaArchivo = document.createElement("label");
+            const archivo = document.createElement("input");
+            const enviar = document.createElement("button");
+
+            formulario.className = "form-entrega-guia";
+            formulario.action = "entregar_guia.php";
+            formulario.method = "POST";
+            formulario.enctype = "multipart/form-data";
+            idGuia.type = "hidden";
+            idGuia.name = "guia_id";
+            idGuia.value = guia.id;
+            etiquetaArchivo.textContent = "Adjunta tu trabajo";
+            archivo.type = "file";
+            archivo.name = "archivo";
+            archivo.accept = ".pdf,.doc,.docx";
+            archivo.required = true;
+            enviar.type = "submit";
+            enviar.className = "btn-primary";
+            enviar.textContent = "Enviar trabajo";
+
+            formulario.append(idGuia, etiquetaArchivo, archivo, enviar);
+            tarjeta.appendChild(formulario);
+          }
+
+          lista.appendChild(tarjeta);
+        });
+      })
+      .catch(error => {
+        document.getElementById("lista-guias").textContent = error.message;
+      });
+  </script>
+</body>
+</html>

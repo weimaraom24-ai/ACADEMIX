@@ -1,0 +1,703 @@
+/* Configuración del tamaño de todos los elementos */
+*,
+*::before,
+*::after {
+
+    box-sizing: border-box;
+
+}
+
+/* Estilos generales de la página */
+body {
+
+    margin: 0;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    background-image: linear-gradient(rgba(23, 42, 90, 0.75), rgba(43, 63, 125, 0.75)), url("imagen de fondo.jpeg");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    color: #f2f5ff;
+
+}
+
+/* Contenedor principal */
+.contenedor {
+
+    display: flex;
+
+    min-height: 100vh;
+
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    padding: 40px 20px;
+
+    gap: 24px;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+/* Estilos compartidos entre los paneles */
+.izquierda,
+.derecha {
+
+    border-radius: 28px;
+
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+
+}
+
+/* Panel izquierdo */
+.izquierda {
+
+    flex: 1;
+
+    max-width: 560px;
+
+    width: min(560px, 100%);
+
+    background: rgba(255, 255, 255, 0.12);
+
+    backdrop-filter: blur(12px);
+
+    color: #ffffff;
+
+    padding: 36px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    gap: 28px;
+
+    margin: 0 auto;
+
+}
+
+/* Encabezado del logo */
+.logo-header {
+
+    display: none;
+
+}
+
+/* Imagen del logo */
+.logo-header img {
+
+    width: 84px;
+
+    border-radius: 18px;
+
+    border: 2px solid rgba(255, 255, 255, 0.5);
+
+}
+
+/* Contenedor de información del logo */
+.logo-header div {
+
+    text-align: center;
+
+}
+
+/* Nombre de la marca */
+.marca {
+
+    font-size: 1.35rem;
+
+    font-weight: 700;
+
+    letter-spacing: 0.18em;
+
+    text-transform: uppercase;
+
+    margin: 0;
+
+}
+
+/* Texto secundario del encabezado */
+.logo-header span {
+
+    color: rgba(255, 255, 255, 0.83);
+
+    font-size: 0.95rem;
+
+}
+
+/* Título de bienvenida */
+.bienvenida h1 {
+
+    margin: 0;
+
+    font-size: clamp(2rem, 4vw, 3rem);
+
+    line-height: 1.05;
+
+}
+
+/* Párrafo de bienvenida */
+.bienvenida p {
+
+    max-width: 520px;
+
+    font-size: 1rem;
+
+    color: rgba(255, 255, 255, 0.82);
+
+    line-height: 1.7;
+
+    margin: 0 auto;
+
+}
+
+/* Contenedor de bienvenida */
+.bienvenida {
+
+    text-align: center;
+
+}
+
+/* Panel derecho */
+.derecha {
+
+    display: none !important;
+
+    flex: 1;
+
+    background: linear-gradient(180deg, #0644ec 0%, #d6e0ff 100%);
+
+    padding: 36px;
+
+    border: 1px solid rgba(68, 83, 195, 0.18);
+
+}
+
+/* Mantiene oculto el panel cuando tiene el atributo hidden */
+.derecha[hidden] {
+
+    display: none !important;
+
+}
+
+/* Tarjeta que contiene los formularios */
+.tarjeta {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 24px;
+
+    background: rgba(255, 255, 255, 0.9);
+
+    border-radius: 28px;
+
+    padding: 28px;
+
+    box-shadow: 0 24px 50px rgba(42, 64, 114, 0.12);
+
+}
+
+/* Contenedor de las pestañas */
+.tabs {
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+
+}
+
+/* Botones de las pestañas */
+.tabs button {
+
+    padding: 14px 18px;
+
+    border: 1px solid rgba(68, 83, 195, 0.18);
+
+    background: rgba(255, 255, 255, 0.92);
+
+    color: #2c3a73;
+
+    cursor: pointer;
+
+    border-radius: 14px;
+
+    font-weight: 600;
+
+    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+
+}
+
+/* Efecto al pasar el cursor sobre las pestañas */
+.tabs button:hover {
+
+    background: rgba(68, 83, 195, 0.08);
+
+    color: #2c3a73;
+
+    transform: translateY(-1px);
+
+}
+
+/* Pestaña que se encuentra activa */
+.tabs button.active {
+
+    background: rgba(68, 83, 195, 0.18);
+
+    color: #2c3a73;
+
+}
+
+/* Formularios ocultos */
+.formulario {
+
+    display: none;
+
+}
+
+/* Formulario activo */
+.formulario.activo {
+
+    display: block;
+
+}
+
+/* Título de los formularios */
+.formulario h2 {
+
+    margin-top: 0;
+
+    font-size: 1.8rem;
+
+    color: #19234a;
+
+}
+
+/* Contenedor de cada campo */
+.campo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 16px;
+
+}
+
+.campo[hidden] {
+
+    display: none;
+
+}
+
+/* Etiquetas de los campos */
+.campo label {
+
+    font-size: 0.95rem;
+
+    color: #4b5588;
+
+}
+
+/* Campos de texto y listas */
+input,
+select {
+
+    width: 100%;
+
+    padding: 14px 16px;
+
+    border-radius: 14px;
+
+    border: 1px solid #dcdfe9;
+
+    background: #fafbff;
+
+    font-size: 1rem;
+
+    color: #1d2146;
+
+}
+
+/* Efecto cuando un campo está seleccionado */
+input:focus,
+select:focus {
+
+    outline: none;
+
+    border-color: #6872ff;
+
+    box-shadow: 0 0 0 4px rgba(104, 114, 255, 0.12);
+
+}
+
+/* Estilos generales de los botones */
+button {
+
+    width: 100%;
+
+    padding: 14px 18px;
+
+    background: #4453c3;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    font-size: 1rem;
+
+    font-weight: 700;
+
+    transition: background 0.2s ease;
+
+}
+
+/* Efecto al pasar el cursor sobre los botones */
+button:hover {
+
+    background: #2f3bb0;
+
+}
+
+/* Botón para abrir los formularios */
+.btn-auth {
+
+    padding: 14px 22px;
+
+    border: none;
+
+    background: rgba(255, 255, 255, 0.18);
+
+    color: #ffffff;
+
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+    transition: transform 0.2s ease, background 0.2s ease;
+
+}
+
+/* Efecto del botón de autenticación */
+.btn-auth:hover {
+
+    background: rgba(255, 255, 255, 0.28);
+
+    transform: translateY(-1px);
+
+}
+
+/* Fondo del formulario modal */
+.modal-form-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(4, 12, 30, 0.28);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    transition: opacity 220ms ease;
+
+    z-index: 1001;
+
+}
+
+/* Muestra el modal cuando no tiene el atributo hidden */
+.modal-form-overlay:not([hidden]) {
+
+    opacity: 1;
+
+    pointer-events: auto;
+
+}
+
+/* Tarjeta del formulario modal */
+.modal-form-card {
+
+    width: min(360px, calc(100% - 36px));
+
+    max-width: 360px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-radius: 28px;
+
+    padding: 26px;
+
+    box-shadow: 0 24px 60px rgba(15, 39, 64, 0.18);
+
+    position: relative;
+
+    backdrop-filter: blur(12px);
+
+}
+
+/* Aumenta el tamaño del modal para el formulario de registro */
+.modal-form-card:has(#registro.activo) {
+
+    width: min(760px, calc(100% - 36px));
+
+    max-width: 760px;
+
+}
+
+/* Formulario de registro */
+#registro form {
+
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    column-gap: 18px;
+
+    row-gap: 16px;
+
+}
+
+/* Línea divisoria del formulario de registro */
+#registro form::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    bottom: 58px;
+
+    left: 50%;
+
+    width: 1px;
+
+    background: #e2e5ef;
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
+
+}
+
+/* Campos del formulario de registro */
+#registro form .campo {
+
+    min-width: 0;
+
+    margin-bottom: 0;
+
+}
+
+/* Tamaño de los campos del registro */
+#registro input,
+#registro select {
+
+    height: 50px;
+
+}
+
+/* Botón del formulario de registro */
+#registro form > button {
+
+    grid-column: 1 / -1;
+
+    justify-self: center;
+
+    width: 170px;
+
+    margin-top: 2px;
+
+    padding: 11px 18px;
+
+}
+
+/* Botón para cerrar el formulario */
+.modal-form-close {
+
+    position: absolute;
+
+    top: 16px;
+
+    right: 16px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #2c3a73;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+}
+
+/* Efecto del botón de cierre */
+.modal-form-close:hover {
+
+    color: #4453c3;
+
+}
+
+/* Encabezado del formulario */
+.form-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 14px;
+
+    margin-bottom: 16px;
+
+}
+
+/* Título del formulario */
+.form-header h2 {
+
+    margin: 0;
+
+    font-size: 1.75rem;
+
+    color: #19234a;
+
+}
+
+/* Botón del encabezado */
+.form-header button {
+
+    width: auto;
+
+    min-width: 32px;
+
+    height: auto;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 0;
+
+    background: transparent;
+
+    color: #2c3a73;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    transition: color 0.2s ease;
+
+    appearance: none;
+
+    -webkit-appearance: none;
+
+    outline: none;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    line-height: 1;
+
+}
+
+/* Efecto del botón del encabezado */
+.form-header button:hover {
+
+    color: #4453c3;
+
+}
+
+/* Elimina el borde interno del botón en Firefox */
+.form-header button::-moz-focus-inner {
+
+    border: 0;
+
+}
+
+/* Adaptación para pantallas de hasta 900px */
+@media (max-width: 900px) {
+
+    .contenedor {
+
+        flex-direction: column;
+
+        padding: 20px;
+
+    }
+
+    .izquierda,
+    .derecha {
+
+        width: 100%;
+
+    }
+
+}
+
+/* Adaptación para pantallas de hasta 620px */
+@media (max-width: 620px) {
+
+    .modal-form-card:has(#registro.activo) {
+
+        width: min(100% - 24px, 480px);
+
+        padding: 22px;
+
+    }
+
+    #registro form {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    #registro form::before {
+
+        display: none;
+
+    }
+
+    #registro form > button {
+
+        grid-column: auto;
+
+    }
+
+}

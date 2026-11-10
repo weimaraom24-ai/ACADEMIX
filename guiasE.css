@@ -1,0 +1,247 @@
+/* Define el color de fondo general de la página */
+body {
+
+  background-color: lightblue;
+
+}
+
+/* Barra superior de navegación */
+.barra {
+
+  /* Organiza los elementos de la barra en una fila */
+  display: flex;
+
+  /* Distribuye los elementos dejando espacio entre ellos */
+  justify-content: space-between;
+
+  /* Centra verticalmente los elementos */
+  align-items: center;
+
+  /* Define el espacio interno de la barra */
+  padding: 15px 60px;
+
+  /* Define el color de fondo de la barra */
+  background-color: rgb(100, 175, 201);
+
+}
+
+/* Contenedor del menú de navegación */
+.menu {
+
+  /* Organiza los elementos del menú en una fila */
+  display: flex;
+
+  /* Define el espacio entre los elementos del menú */
+  gap: 80px; 
+
+}
+
+/* Estilos de los enlaces del menú */
+.menu a {
+
+  /* Elimina el subrayado de los enlaces */
+  text-decoration: none;
+
+  /* Define el color del texto */
+  color: white;
+
+  /* Define el grosor de la letra */
+  font-weight: 600;
+
+  /* Define el tamaño de la letra */
+  font-size: 50px;
+
+  /* Define la fuente utilizada */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+/* Efecto de los enlaces cuando el cursor pasa sobre ellos */
+.menu a:hover {
+
+  /* Muestra nuevamente el subrayado */
+  text-decoration: underline;
+
+}
+
+/* Define el tamaño de la imagen del logo */
+.logo img {
+
+  width: 120px;
+
+}
+
+/* Sección principal de las guías para estudiantes */
+.guias-estudiantes {
+
+  /* Define el espacio interno de la sección */
+  padding: 80px 20px;
+
+  /* Define el color de fondo de la sección */
+  background: lightblue;
+
+  /* Centra el contenido de la sección */
+  text-align: center;
+
+}
+
+/* Título principal de la sección de guías */
+.guias-estudiantes h1 {
+
+  /* Define el tamaño del título */
+  font-size: 40px;
+
+  /* Define el color del título */
+  color: blue;
+
+  /* Define el espacio debajo del título */
+  margin-bottom: 15px;
+
+}
+
+/* Texto introductorio de la sección */
+.intro {
+
+  /* Define el color del texto */
+  color: blue;
+
+  /* Define el espacio debajo del texto */
+  margin-bottom: 50px;
+
+  /* Define el tamaño de la letra */
+  font-size: 18px;
+
+}
+
+/* Contenedor que organiza las materias */
+.contenedor-materias {
+
+  /* Utiliza un sistema de cuadrícula para organizar las tarjetas */
+  display: grid;
+
+  /* Crea columnas que se adaptan automáticamente al tamaño de la pantalla */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  /* Define el espacio entre las tarjetas */
+  gap: 30px;
+
+  /* Establece el ancho máximo del contenedor */
+  max-width: 1200px;
+
+  /* Centra automáticamente el contenedor */
+  margin: auto;
+
+}
+
+/* Tarjeta individual de cada materia */
+.materia-card {
+
+  /* Define el color de fondo de la tarjeta */
+  background: white;
+
+  /* Define el espacio interno de la tarjeta */
+  padding: 30px;
+
+  /* Redondea las esquinas de la tarjeta */
+  border-radius: 20px;
+
+  /* Agrega una sombra alrededor de la tarjeta */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+
+  /* Alinea el texto hacia la izquierda */
+  text-align: left;
+
+  /* Define una transición suave para los cambios visuales */
+  transition: 0.3s ease;
+
+}
+
+/* Efecto de la tarjeta cuando el cursor pasa sobre ella */
+.materia-card:hover {
+
+  /* Mueve ligeramente la tarjeta hacia arriba */
+  transform: translateY(-8px);
+
+}
+
+/* Título dentro de cada tarjeta de materia */
+.materia-card h2 {
+
+  /* Define el espacio debajo del título */
+  margin-bottom: 20px;
+
+  /* Define el color del título */
+  color: #1e3c72;
+
+}
+
+/* Contenedor individual de cada guía */
+.guia {
+
+  /* Organiza los elementos de la guía en una fila */
+  display: flex;
+
+  /* Coloca los elementos en extremos opuestos */
+  justify-content: space-between;
+
+  /* Centra verticalmente los elementos */
+  align-items: center;
+
+  /* Define el color de fondo de la guía */
+  background: #f4f7fc;
+
+  /* Define el espacio interno */
+  padding: 10px 15px;
+
+  /* Define el espacio debajo de cada guía */
+  margin-bottom: 10px;
+
+  /* Redondea las esquinas */
+  border-radius: 12px;
+
+}
+
+/* Estilos para el texto dentro de cada guía */
+.guia span {
+
+  /* Define el tamaño de la letra */
+  font-size: 15px;
+
+  /* Define el color del texto */
+  color: #444;
+
+}
+
+/* Estilos para los botones de las guías */
+.guia button {
+
+  /* Define el espacio interno del botón */
+  padding: 6px 12px;
+
+  /* Elimina el borde predeterminado */
+  border: none;
+
+  /* Redondea las esquinas del botón */
+  border-radius: 8px;
+
+  /* Define el color de fondo del botón */
+  background-color: #1e3c72;
+
+  /* Define el color del texto */
+  color: white;
+
+  /* Cambia el cursor a una mano al pasar sobre el botón */
+  cursor: pointer;
+
+  /* Define una transición suave para los cambios */
+  transition: 0.3s ease;
+
+}
+
+/* Efecto del botón cuando el cursor pasa sobre él */
+.guia button:hover {
+
+  /* Cambia el color de fondo del botón */
+  background-color: #2a5298;
+
+}

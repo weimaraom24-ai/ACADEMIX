@@ -1,0 +1,152 @@
+   /*
+    Estilos generales de la página.
+    Se establece el color de fondo principal.
+*/
+body {
+    background-color: lightblue;
+}
+
+/*
+    Barra superior de navegación.
+    Se utiliza Flexbox para organizar los elementos,
+    alinearlos y distribuir el espacio disponible.
+*/
+.barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 6cqmax; /* antes 150px */
+  background-color: rgb(100, 175, 201);
+}
+
+/*
+    Contenedor de los elementos del menú.
+    Se organizan los enlaces de forma horizontal
+    y se establece un espacio entre ellos.
+*/
+.menu {
+  display: flex;
+  gap: 60px; /* antes 340px */
+}
+
+/*
+    Estilos de los enlaces del menú de navegación.
+    Se define el color, tamaño, fuente y grosor del texto.
+*/
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600; /* 5000 no es válido */
+  font-size: 40px; /* antes 150px */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/*
+    Efecto que se aplica a los enlaces
+    cuando el usuario coloca el cursor sobre ellos.
+*/
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/*
+    Configuración del tamaño de la imagen
+    utilizada como logo.
+*/
+.logo img {
+  width: 120px; /* antes 350px */
+}
+
+
+/*
+    SECCIÓN DE AYUDA PARA DOCENTES
+
+    Define el espacio interno de la sección
+    y establece el color de fondo.
+*/
+.ayuda-docentes {
+  padding: 80px 20px;
+  background: lightblue;
+}
+
+/*
+    Contenedor principal de la sección de ayuda.
+    Se establece un ancho máximo, fondo blanco,
+    espacio interno, bordes redondeados y sombra.
+*/
+.contenedor-ayuda {
+  max-width: 1000px;
+  margin: auto;
+  background: white;
+  padding: 60px;
+  border-radius: 25px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+/*
+    Estilos del título principal de la sección de ayuda.
+    Se centra el texto y se establece su tamaño,
+    margen inferior y color.
+*/
+.contenedor-ayuda h1 {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #1e3c72;
+}
+
+/*
+    Estilos del texto introductorio.
+    Se centra el contenido y se establece
+    su tamaño, margen y color.
+*/
+.intro {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 50px;
+  color: #555;
+}
+
+/*
+    Bloques individuales de información.
+    Se establece el espacio, color de fondo,
+    bordes redondeados y una transición.
+*/
+.bloque-ayuda {
+  margin-bottom: 35px;
+  padding: 25px;
+  background-color: #f4f7fc;
+  border-radius: 18px;
+  transition: 0.3s ease;
+}
+
+/*
+    Efecto visual de los bloques de ayuda
+    cuando el usuario coloca el cursor sobre ellos.
+    El bloque se desplaza ligeramente hacia arriba.
+*/
+.bloque-ayuda:hover {
+  transform: translateY(-5px);
+}
+
+/*
+    Estilos de los subtítulos de cada bloque de ayuda.
+    Se define el tamaño, margen inferior y color.
+*/
+.bloque-ayuda h2 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #2a5298;
+}
+
+/*
+    Estilos de los párrafos que aparecen
+    dentro de cada bloque de ayuda.
+    Se establece el tamaño, separación entre líneas
+    y color del texto.
+*/
+.bloque-ayuda p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #444;
+}

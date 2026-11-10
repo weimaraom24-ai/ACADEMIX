@@ -1,0 +1,334 @@
+/* Estilos exclusivos del quiz: configuración, partida, resultados y adaptación móvil. */
+:root {
+  --game-ink: #172c36;
+  --game-muted: #647780;
+  --game-teal: #087f78;
+  --game-cyan: #d7f4ef;
+  --game-yellow: #ffd45c;
+  --game-coral: #ee665c;
+}
+
+/* Fondo y espacio reservado debajo del encabezado fijo. */
+.juegos-main {
+  min-height: calc(100vh - 180px);
+  padding: 142px 20px 56px;
+  background-color: #f3f8f6;
+  background-image: radial-gradient(#cddedb 0.8px, transparent 0.8px);
+  background-size: 18px 18px;
+}
+
+.juegos-shell {
+  width: min(820px, 100%);
+  margin: 0 auto;
+  color: var(--game-ink);
+}
+
+.juegos-heading {
+  margin-bottom: 25px;
+  animation: juego-entrada 420ms ease both;
+}
+
+.juegos-kicker {
+  margin: 0 0 9px;
+  color: var(--game-teal);
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+}
+
+.juegos-heading h1 {
+  margin: 0;
+  font-size: clamp(1.9rem, 5vw, 2.8rem);
+  line-height: 1.08;
+}
+
+.juegos-heading > p:last-child {
+  margin: 10px 0 0;
+  color: var(--game-muted);
+  line-height: 1.55;
+}
+
+/* Superficies principales que alterna el juego. */
+.juego-setup,
+.partida,
+.resultado-juego {
+  padding: clamp(20px, 5vw, 36px);
+  border: 1px solid #d8e5e2;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 18px 45px rgba(28, 58, 63, 0.09);
+  animation: juego-entrada 360ms ease both;
+}
+
+.setup-topline,
+.partida-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 26px;
+  color: var(--game-muted);
+  font-size: 0.76rem;
+  font-weight: 800;
+}
+
+.setup-topline span:first-child {
+  color: var(--game-teal);
+}
+
+.juego-setup label {
+  display: block;
+  margin-bottom: 9px;
+  font-weight: 750;
+}
+
+/* Selector de materia y control para iniciar una partida. */
+.setup-controls {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+
+.setup-controls select {
+  width: 100%;
+  min-width: 0;
+  min-height: 50px;
+  padding: 10px 13px;
+  border: 1px solid #b8cbc7;
+  border-radius: 5px;
+  background: #fff;
+  color: var(--game-ink);
+  font: inherit;
+}
+
+.setup-controls select:focus-visible,
+.respuesta:focus-visible,
+.boton-juego:focus-visible {
+  outline: 3px solid rgba(8, 127, 120, 0.3);
+  outline-offset: 3px;
+}
+
+.boton-juego {
+  min-height: 46px;
+  padding: 10px 18px;
+  border: 0;
+  border-radius: 5px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 150ms ease, background 150ms ease;
+}
+
+.boton-juego:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.boton-juego:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.boton-iniciar,
+.boton-siguiente {
+  background: var(--game-teal);
+  color: #fff;
+}
+
+.boton-iniciar:hover:not(:disabled),
+.boton-siguiente:hover:not(:disabled) {
+  background: #06635e;
+}
+
+.boton-secundario {
+  border: 1px solid #b8cbc7;
+  background: #fff;
+  color: var(--game-ink);
+}
+
+.record-previo {
+  min-height: 22px;
+  margin: 15px 0 0;
+  color: var(--game-muted);
+  font-size: 0.9rem;
+}
+
+.materia-actual {
+  color: var(--game-teal);
+}
+
+.puntaje-label {
+  white-space: nowrap;
+}
+
+.puntaje-label strong {
+  margin-left: 5px;
+  color: var(--game-ink);
+  font-size: 1rem;
+}
+
+/* Indicador visual que acompaña la cuenta atrás. */
+.temporizador {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: #e8efed;
+}
+
+.temporizador span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--game-teal);
+  transform-origin: left;
+  transition: width 1s linear, background 200ms ease;
+}
+
+.tiempo-texto {
+  margin: 7px 0 22px;
+  color: var(--game-muted);
+  font-size: 0.82rem;
+  font-weight: 750;
+  text-align: right;
+}
+
+.texto-pregunta {
+  max-width: 680px;
+  min-height: 64px;
+  margin: 0 auto 24px;
+  font-size: clamp(1.35rem, 3.5vw, 1.9rem);
+  line-height: 1.25;
+  text-align: center;
+}
+
+/* Cuadrícula de alternativas y estados de respuesta. */
+.respuestas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.respuesta {
+  min-height: 70px;
+  padding: 14px 16px;
+  border: 0;
+  border-radius: 5px;
+  color: #fff;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 750;
+  text-align: left;
+  cursor: pointer;
+  transition: transform 150ms ease, filter 150ms ease;
+}
+
+.respuesta:hover:not(:disabled) {
+  filter: brightness(1.06);
+  transform: translateY(-2px);
+}
+
+.respuesta:nth-child(4n + 1) { background: #d94e46; }
+.respuesta:nth-child(4n + 2) { background: #1976a5; }
+.respuesta:nth-child(4n + 3) { background: #b78112; }
+.respuesta:nth-child(4n + 4) { background: #16836c; }
+.respuesta:disabled { cursor: default; }
+.respuesta.es-correcta { box-shadow: inset 0 0 0 4px #bff2d5; }
+.respuesta.es-incorrecta { opacity: 0.55; }
+
+.feedback-line {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.feedback-line p {
+  margin: 0;
+  color: var(--game-muted);
+  font-weight: 700;
+}
+
+.feedback-line p.feedback-correcto { color: #087052; }
+.feedback-line p.feedback-error { color: #b64238; }
+
+/* Resumen de aciertos, puntaje y acciones posteriores. */
+.resultado-juego {
+  text-align: center;
+}
+
+.resultado-juego h2 {
+  margin: 4px 0 7px;
+  font-size: clamp(1.7rem, 4vw, 2.3rem);
+}
+
+.resumen-resultado {
+  margin: 0;
+  color: var(--game-muted);
+}
+
+.resultado-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 26px 0;
+  border-top: 1px solid #d8e5e2;
+  border-bottom: 1px solid #d8e5e2;
+}
+
+.resultado-stats div {
+  display: grid;
+  gap: 7px;
+  padding: 17px 8px;
+}
+
+.resultado-stats div + div {
+  border-left: 1px solid #d8e5e2;
+}
+
+.resultado-stats span {
+  color: var(--game-muted);
+  font-size: 0.7rem;
+  font-weight: 850;
+}
+
+.resultado-stats strong {
+  font-size: 1.35rem;
+}
+
+.resultado-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+[hidden] { display: none !important; }
+
+@keyframes juego-entrada {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* En pantallas angostas los controles y opciones se apilan. */
+@media (max-width: 560px) {
+  .juegos-main { padding: 126px 14px 36px; }
+  .setup-controls { grid-template-columns: 1fr; }
+  .setup-controls .boton-juego { width: 100%; }
+  .partida-topline { flex-wrap: wrap; margin-bottom: 18px; }
+  .respuestas { grid-template-columns: 1fr; }
+  .respuesta { min-height: 58px; }
+  .feedback-line { align-items: flex-start; flex-direction: column; }
+  .resultado-stats span { font-size: 0.62rem; }
+  .resultado-stats strong { font-size: 1.15rem; }
+  .resultado-actions { flex-direction: column; }
+  .resultado-actions button { width: 100%; }
+}
+
+/* Respeta la preferencia del sistema por reducir animaciones. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

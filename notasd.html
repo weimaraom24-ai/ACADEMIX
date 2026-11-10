@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>ACADEMIX — Registro de Notas (Docentes)</title>
+  <link rel="stylesheet" href="estudiante.css">
+  <link rel="stylesheet" href="notas-docente.css">
+  <meta name="description" content="Registro de notas para docentes">
+</head>
+<body>
+<!-- Vista docente alternativa para consultar estudiantes y guardar notas por materia. -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <div class="header-start">
+        <button id="left-hamburger" class="left-hamburger" aria-label="Abrir menú">☰</button>
+        <div class="brand-container">
+          <a class="brand" href="docente.html" aria-label="Inicio ACADEMIX">
+            <img src="logo.jpg" alt="logo Academix">
+            <div class="brand-meta">
+              <span class="brand-name">ACADEMIX</span>
+              <small> Docente</small>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="header-phrase">tu cerebro en su prime</div>
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="docente.html">Inicio</a></li>
+          <li><a href="guiasD.html">Guías</a></li>
+          <li><a class="active" href="notasd.html">Notas</a></li>
+          <li><a href="ayudaD.html">Soporte</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-logout" type="button" onclick="window.location.href='logout.php'">Salir</button>
+        <button id="btn-menu" class="btn-menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <nav id="side-panel" class="side-panel" aria-hidden="true">
+    <button id="side-close" class="side-close" aria-label="Cerrar menú">×</button>
+    <ul>
+      <li><a href="docente.html">Inicio</a></li>
+      <li><a href="guiasD.html">Guías</a></li>
+      <li><a href="notasd.html">Notas</a></li>
+      <li><a href="ayudaD.html">Soporte</a></li>
+    </ul>
+  </nav>
+  <div id="side-overlay" class="side-overlay" hidden></div>
+
+  <main class="notas-docente container">
+    <section class="notas-section">
+      <div class="notas-heading">
+        <p class="notas-eyebrow">ACADEMIX / DOCENCIA</p>
+        <h1>Notas por grado</h1>
+      </div>
+
+      <div class="notas-filtros" aria-label="Filtros de notas">
+        <div class="filtro-campo">
+          <label for="filtro-grupo">Grado</label>
+          <select id="filtro-grupo">
+            <option value="">Seleccionar grado</option>
+            <option value="10-1">10-1</option>
+            <option value="10-2">10-2</option>
+            <option value="10-3">10-3</option>
+            <option value="10-4">10-4</option>
+            <option value="10-5">10-5</option>
+            <option value="10-6">10-6</option>
+            <option value="10-7">10-7</option>
+            <option value="11-1">11-1</option>
+            <option value="11-2">11-2</option>
+            <option value="11-3">11-3</option>
+            <option value="11-4">11-4</option>
+            <option value="11-5">11-5</option>
+            <option value="11-6">11-6</option>
+            <option value="11-7">11-7</option>
+          </select>
+        </div>
+        <div class="filtro-campo">
+          <label for="filtro-materia">Materia</label>
+          <select id="filtro-materia">
+            <option value="">Seleccionar materia</option>
+            <option value="Lectura Critica">Lectura Critica</option>
+            <option value="Matematicas">Matematicas</option>
+            <option value="Ciencias Naturales">Ciencias Naturales</option>
+            <option value="Competencias Ciudadanas">Competencias Ciudadanas</option>
+            <option value="Ingles">Ingles</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="buscar-notas" class="btn-buscar-notas" type="button">Buscar</button>
+
+      <p id="estado-notas" class="estado-notas" role="status" aria-live="polite">Selecciona un grado y una materia para consultar estudiantes.</p>
+
+      <div id="contenedor-tabla-notas" class="tabla-notas-wrap" hidden>
+        <table class="tabla-notas">
+          <thead>
+            <tr>
+              <th scope="col">Estudiante</th>
+              <th scope="col">Nota / 5.0</th>
+              <th scope="col">Acción</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-estudiantes-notas"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><small>ACADEMIX — Plataforma Educativa</small></div>
+  </footer>
+
+  <script src="estudiante-app.js"></script>
+
+<script>
+// Referencias a filtros, avisos y tabla de resultados.
+const grupoSelect = document.getElementById("filtro-grupo");
+const materiaSelect = document.getElementById("filtro-materia");
+const estadoNotas = document.getElementById("estado-notas");
+const contenedorTabla = document.getElementById("contenedor-tabla-notas");
+const tablaEstudiantes = document.getElementById("tabla-estudiantes-notas");
+const botonBuscar = document.getElementById("buscar-notas");
+
+// Busca estudiantes del grado seleccionado y sus notas en la materia escogida.
+async function cargarEstudiantes() {
+  const grupo = grupoSelect.value;
+  const materia = materiaSelect.value;
+  tablaEstudiantes.replaceChildren();
+  contenedorTabla.hidden = true;
+
+  if (!grupo || !materia) {
+    estadoNotas.textContent = "Selecciona un grado y una materia para consultar estudiantes.";
+    return;
+  }
+
+  estadoNotas.textContent = "Cargando estudiantes...";
+
+  try {
+    const parametros = new URLSearchParams({ grupo, materia });
+    const respuesta = await fetch(`listar_notas_docente.php?${parametros}`);
+    const estudiantes = await respuesta.json();
+    if (!respuesta.ok) throw new Error(estudiantes.error || "No se pudieron cargar los estudiantes.");
+
+    if (estudiantes.length === 0) {
+      estadoNotas.textContent = `No hay estudiantes registrados en el grado ${grupo}.`;
+      return;
+    }
+
+    estudiantes.forEach(estudiante => {
+      const fila = document.createElement("tr");
+      const nombre = document.createElement("td");
+      const celdaNota = document.createElement("td");
+      const celdaAccion = document.createElement("td");
+      const entradaNota = document.createElement("input");
+      const botonGuardar = document.createElement("button");
+
+      nombre.textContent = `${estudiante.apellido}, ${estudiante.nombre}`;
+      entradaNota.type = "number";
+      entradaNota.min = "0";
+      entradaNota.max = "5";
+      entradaNota.step = "0.1";
+      entradaNota.value = estudiante.nota ?? "";
+      entradaNota.placeholder = "0.0 - 5.0";
+      entradaNota.setAttribute("aria-label", `Nota de ${estudiante.nombre} ${estudiante.apellido}`);
+      botonGuardar.type = "button";
+      botonGuardar.className = "btn-guardar-nota";
+      botonGuardar.textContent = "Guardar";
+      botonGuardar.addEventListener("click", () => guardarNota(estudiante.id, entradaNota, botonGuardar));
+
+      celdaNota.appendChild(entradaNota);
+      celdaAccion.appendChild(botonGuardar);
+      fila.append(nombre, celdaNota, celdaAccion);
+      tablaEstudiantes.appendChild(fila);
+    });
+
+    estadoNotas.textContent = `${estudiantes.length} estudiante${estudiantes.length === 1 ? "" : "s"} en el grado ${grupo} · ${materia}`;
+    contenedorTabla.hidden = false;
+  } catch (error) {
+    estadoNotas.textContent = error.message || "No se pudieron cargar los estudiantes.";
+  }
+}
+
+// Valida la nota y la envía al endpoint para guardarla o actualizarla.
+async function guardarNota(estudianteId, entrada, boton) {
+  if (entrada.value === "" || Number(entrada.value) < 0 || Number(entrada.value) > 5) {
+    entrada.focus();
+    estadoNotas.textContent = "Ingresa una nota entre 0.0 y 5.0.";
+    return;
+  }
+
+  boton.disabled = true;
+  boton.textContent = "Guardando...";
+  const datos = new URLSearchParams({
+    estudiante_id: estudianteId,
+    grupo: grupoSelect.value,
+    materia: materiaSelect.value,
+    nota: entrada.value
+  });
+
+  try {
+    const respuesta = await fetch("guardar_nota_estudiante.php", { method: "POST", body: datos });
+    const resultado = await respuesta.json();
+    if (!respuesta.ok) throw new Error(resultado.error || "No se pudo guardar la nota.");
+    entrada.value = resultado.nota;
+    estadoNotas.textContent = "Nota guardada correctamente.";
+    boton.textContent = "Guardado";
+  } catch (error) {
+    estadoNotas.textContent = error.message || "No se pudo guardar la nota.";
+    boton.textContent = "Guardar";
+  } finally {
+    boton.disabled = false;
+  }
+}
+
+// Oculta los resultados previos para evitar mostrar datos de filtros anteriores.
+function limpiarResultados() {
+  tablaEstudiantes.replaceChildren();
+  contenedorTabla.hidden = true;
+  estadoNotas.textContent = "Pulsa Buscar para consultar el grado y la materia seleccionados.";
+}
+
+grupoSelect.addEventListener("change", limpiarResultados);
+materiaSelect.addEventListener("change", limpiarResultados);
+botonBuscar.addEventListener("click", cargarEstudiantes);
+</script>
+
+</body>
+</html>

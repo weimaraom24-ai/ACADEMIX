@@ -1,0 +1,78 @@
+.guia-estudiante-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.guia-estudiante-card h2,
+.guia-estudiante-card p {
+  margin: 0;
+}
+
+.guia-estudiante-card > .btn-primary {
+  align-self: flex-start;
+  text-decoration: none;
+}
+
+.form-entrega-guia {
+  display: grid;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid #e5ebf1;
+}
+
+.form-entrega-guia label {
+  color: #30465b;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.form-entrega-guia input[type="file"] {
+  width: 100%;
+  min-width: 0;
+  padding: 9px;
+  border: 1px solid #d5dfe7;
+  border-radius: 6px;
+  background: #f9fbfc;
+  color: #30465b;
+  font: inherit;
+  font-size: 0.8rem;
+}
+
+.form-entrega-guia .btn-primary {
+  width: 100%;
+  min-height: 42px;
+  margin-top: 3px;
+}
+
+.entrega-registrada {
+  margin-top: auto !important;
+  padding: 10px 12px;
+  border: 1px solid #bfe3d0;
+  border-radius: 6px;
+  background: #edf8f2;
+  color: #256748;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.mensaje-entrega {
+  margin: 12px 0 18px;
+  padding: 12px 14px;
+  border: 1px solid #efc7c3;
+  border-radius: 6px;
+  background: #fff2f0;
+  color: #a23d35;
+  font-weight: 650;
+}
+
+.mensaje-entrega.entrega-exitosa {
+  border-color: #bfe3d0;
+  background: #edf8f2;
+  color: #256748;
+}
+
+[hidden] {
+  display: none !important;
+}

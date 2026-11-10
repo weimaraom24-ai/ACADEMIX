@@ -1,0 +1,106 @@
+/* Estilos heredados para tarjetas de evaluaciones; la navegación actual usa Juegos. */
+body {
+    background-color: lightblue;
+}
+
+.barra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 6cqmax; /* antes 150px */
+  background-color: rgb(100, 175, 201);
+}
+
+.menu {
+  display: flex;
+  gap: 60px; /* antes 340px */
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600; /* 5000 no es válido */
+  font-size: 40px; /* antes 150px */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+.logo img {
+  width: 120px; /* antes 350px */
+}
+
+.panel-pruebas {
+  padding: 80px 20px;
+  background: lightblue;
+  text-align: center;
+}
+
+.panel-pruebas h1 {
+  font-size: 38px;
+  margin-bottom: 50px;
+  color: #1e3c72;
+}
+
+.materias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  transition: 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  color: #2a5298;
+}
+
+.card p {
+  font-size: 16px;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.card button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  background-color: #1e3c72;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #2a5298;
+}
+
+.card .subir {
+  background-color: #28a745;
+}
+
+.card .subir:hover {
+  background-color: #218838;
+}
+
+body{
+  background-color: lightblue;
+}

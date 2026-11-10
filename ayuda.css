@@ -1,0 +1,303 @@
+/*
+    Estilos generales de la página.
+    Se establece el color de fondo principal.
+*/
+body{
+
+    background-color: lightblue;
+
+}
+
+/* SECCIÓN AYUDA */
+
+/*
+    Define el espacio interno de la sección de ayuda.
+*/
+.ayuda {
+
+  padding: 60px 20px;
+
+}
+
+/*
+    Estilos para el título principal de la sección de ayuda.
+*/
+.ayuda h1 {
+
+  font-size: 40px;
+
+  margin-bottom: 10px;
+
+  text-align: center;
+
+}
+
+/*
+    Estilos para el texto que aparece debajo
+    del título principal.
+*/
+.subtitulo {
+
+  font-size: 20px;
+
+  margin-bottom: 40px;
+
+  color: #333;
+
+  text-align: center;
+
+}
+
+/*
+    Configuración de la sección de ayuda.
+    Se agrega espacio interno y se centra su contenido.
+*/
+.ayuda {
+
+  padding: 60px 20px;
+
+  text-align: center;
+
+}
+
+/*
+    Configuración del título de la sección de ayuda.
+*/
+.ayuda h1 {
+
+  font-size: 38px;
+
+  margin-bottom: 40px;
+
+}
+
+/*
+    Contenedor de las preguntas frecuentes.
+    Se establece un ancho máximo y se organizan
+    los elementos de forma vertical.
+*/
+.acordeon {
+
+  max-width: 700px;
+
+  margin: auto;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+
+}
+
+/*
+    Estilos generales de cada elemento details.
+    Se utiliza para crear las preguntas desplegables.
+*/
+details {
+
+  background-color: white;
+
+  padding: 20px;
+
+  border-radius: 15px;
+
+  cursor: pointer;
+
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+
+  transition: all 0.3s ease;
+
+}
+
+/*
+    Cambia el color de fondo de la pregunta
+    cuando el elemento details se encuentra abierto.
+*/
+details[open] {
+
+  background-color: #f0f8ff;
+
+}
+
+/*
+    Estilos del título de cada pregunta
+    dentro del acordeón.
+*/
+summary {
+
+  font-size: 20px;
+
+  font-weight: bold;
+
+  list-style: none;
+
+}
+
+/*
+    Oculta el marcador predeterminado que aparece
+    junto al elemento summary en algunos navegadores.
+*/
+summary::-webkit-details-marker {
+
+  display: none;
+
+}
+
+/*
+    Estilos para el texto de respuesta
+    que aparece dentro de cada pregunta.
+*/
+details p {
+
+  margin-top: 15px;
+
+  font-size: 16px;
+
+  color: #444;
+
+}
+
+/*
+    Barra superior de navegación.
+    Se utiliza Flexbox para organizar sus elementos
+    y se establece el color de fondo.
+*/
+.barra {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 15px 60px; 
+
+  background-color: rgb(100, 175, 201);
+
+}
+
+/*
+    Contenedor de los enlaces del menú.
+    Se organizan horizontalmente y se establece
+    un espacio entre cada enlace.
+*/
+.menu {
+
+  display: flex;
+
+  gap: 80px; /* antes 340px */
+
+}
+
+/*
+    Estilos de los enlaces del menú de navegación.
+*/
+.menu a {
+
+  text-decoration: none;
+
+  color: white;
+
+  font-weight: 600; 
+
+  font-size: 50px;
+
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+/*
+    Efecto que aparece cuando el usuario
+    coloca el cursor sobre un enlace del menú.
+*/
+.menu a:hover {
+
+  text-decoration: underline;
+
+}
+
+/*
+    Configuración del tamaño de la imagen
+    utilizada como logo.
+*/
+.logo img {
+
+  width: 120px; /* antes 350px */
+
+}
+
+/*
+    Contenedor de la introducción de la sección de ayuda.
+    Se limita su ancho y se centra horizontalmente.
+*/
+.ayuda-intro {
+
+  max-width: 700px;
+
+  margin: 60px auto;
+
+  text-align: center;
+
+}
+
+/*
+    Estilos del subtítulo dentro de la introducción.
+*/
+.ayuda-intro h2 {
+
+  font-size: 28px;
+
+  margin-bottom: 15px;
+
+}
+
+/*
+    Estilos del párrafo introductorio.
+*/
+.ayuda-intro p {
+
+  font-size: 18px;
+
+  margin-bottom: 30px;
+
+  color: #444;
+
+}
+
+/*
+    Estilos del botón de ayuda.
+    Se configura como un elemento en línea
+    con apariencia de botón.
+*/
+.boton-ayuda {
+
+  display: inline-block;
+
+  padding: 15px 30px;
+
+  background-color: #4034a5;
+
+  color: white;
+
+  text-decoration: none;
+
+  border-radius: 30px;
+
+  font-size: 18px;
+
+  transition: 0.3s ease;
+
+}
+
+/*
+    Efecto visual del botón cuando el usuario
+    coloca el cursor sobre él.
+*/
+.boton-ayuda:hover {
+
+  background-color: #2f257a;
+
+  transform: translateY(-3px);
+
+}

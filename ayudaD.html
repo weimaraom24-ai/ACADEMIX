@@ -1,0 +1,290 @@
+<!--
+    Página HTML del Centro de Ayuda para Docentes de ACADEMIX.
+    Esta página proporciona orientación sobre el uso de la plataforma.
+-->
+<!doctype html>
+<html lang="es">
+
+<head>
+
+  <!-- Permite utilizar correctamente caracteres especiales como tildes y ñ. -->
+  <meta charset="utf-8">
+
+  <!-- Permite adaptar la página a diferentes tamaños de pantalla. -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Título que aparece en la pestaña del navegador. -->
+  <title>ACADEMIX — Ayuda (Docentes)</title>
+
+  <!-- Vincula la hoja de estilos utilizada por la página. -->
+  <link rel="stylesheet" href="estudiante.css">
+
+  <!-- Descripción de la página para identificar su contenido. -->
+  <meta name="description" content="Centro de ayuda para docentes">
+
+</head>
+
+<body>
+
+  <!--
+      ENCABEZADO PRINCIPAL
+      Contiene el menú, el logo, la información del usuario,
+      la navegación principal y las opciones de sesión.
+  -->
+  <header class="site-header" id="site-header">
+
+    <div class="container header-inner">
+
+      <!--
+          Parte inicial del encabezado.
+          Contiene el botón para abrir el menú lateral
+          y la identidad de ACADEMIX.
+      -->
+      <div class="header-start">
+
+        <!-- Botón para abrir el menú lateral. -->
+        <button id="left-hamburger" class="left-hamburger" aria-label="Abrir menú">☰</button>
+
+        <!-- Contenedor de la identidad de la plataforma. -->
+        <div class="brand-container">
+
+          <!-- Enlace que dirige a la página principal del docente. -->
+          <a class="brand" href="docente.html" aria-label="Inicio ACADEMIX">
+
+            <!-- Logo de ACADEMIX. -->
+            <img src="logo.jpg" alt="logo Academix">
+
+            <!-- Información de la marca y del tipo de usuario. -->
+            <div class="brand-meta">
+
+              <!-- Nombre de la plataforma. -->
+              <span class="brand-name">ACADEMIX</span>
+
+              <!-- Identificación del perfil como docente. -->
+              <small> Docente</small>
+
+            </div>
+
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- Frase principal mostrada en el encabezado. -->
+      <div class="header-phrase">tu cerebro en su prime</div>
+
+      <!--
+          MENÚ DE NAVEGACIÓN PRINCIPAL
+          Contiene los enlaces disponibles para el docente.
+      -->
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+
+        <ul>
+
+          <!-- Enlace a la página principal del docente. -->
+          <li><a href="docente.html">Inicio</a></li>
+
+          <!-- Enlace a la sección de guías. -->
+          <li><a href="guiasD.html">Guías</a></li>
+
+
+          <!-- Enlace a la sección de notas. -->
+          <li><a href="notasd.php">Notas</a></li>
+
+          <!--
+              Enlace a la página actual.
+              La clase "active" permite identificar visualmente
+              la sección seleccionada.
+          -->
+          <li><a class="active" href="ayudaD.html">Soporte</a></li>
+
+        </ul>
+
+      </nav>
+
+      <!--
+          Acciones disponibles en el encabezado.
+          Incluye el botón para salir y el botón del menú.
+      -->
+      <div class="header-actions">
+
+        <!--
+            Botón para cerrar la sesión.
+            Redirige al usuario hacia index.html.
+        -->
+        <button class="btn-logout" type="button" onclick="window.location.href='logout.php'">Salir</button>
+
+        <!-- Botón para abrir el menú. -->
+        <button id="btn-menu" class="btn-menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!--
+      MENÚ LATERAL
+      Contiene las diferentes secciones disponibles
+      para el docente.
+  -->
+  <nav id="side-panel" class="side-panel" aria-hidden="true">
+
+    <!-- Botón para cerrar el menú lateral. -->
+    <button id="side-close" class="side-close" aria-label="Cerrar menú">×</button>
+
+    <!-- Lista de opciones de navegación. -->
+    <ul>
+
+      <!-- Enlace al inicio. -->
+      <li><a href="docente.html">Inicio</a></li>
+
+      <!-- Enlace a las guías. -->
+      <li><a href="guiasD.html">Guías</a></li>
+
+      <!-- Enlace a las notas. -->
+      <li><a href="notasd.php">Notas</a></li>
+
+      
+
+      <!-- Enlace al soporte. -->
+      <li><a href="ayudaD.html">Soporte</a></li>
+
+    </ul>
+
+  </nav>
+
+  <!--
+      Capa superpuesta utilizada junto con el menú lateral.
+      Inicialmente permanece oculta.
+  -->
+  <div id="side-overlay" class="side-overlay" hidden></div>
+
+
+  <!--
+      CONTENIDO PRINCIPAL
+      Contiene el Centro de Ayuda dirigido a los docentes.
+  -->
+  <main>
+
+    <!-- Sección principal del Centro de Ayuda. -->
+    <section id="inicio" class="hero container">
+
+      <!-- Tarjeta que contiene toda la información de soporte. -->
+      <div class="hero-card">
+
+        <!-- Título principal de la página. -->
+        <h1>Centro de Ayuda para Docentes</h1>
+
+        <!-- Descripción general de las funciones explicadas. -->
+        <p class="lead">Orientación para el uso de la plataforma: organizar guías, registrar notas y hacer seguimiento académico.</p>
+
+
+        <!--
+            SECCIÓN DE AYUDA
+            Agrupa los diferentes bloques con instrucciones
+            para los docentes.
+        -->
+        <div class="section">
+
+          <!-- Contenedor de los bloques informativos. -->
+          <div class="panel">
+
+            <!--
+                BLOQUE 1
+                Explica el procedimiento para subir una prueba.
+            -->
+            <div class="bloque-ayuda">
+
+              <!-- Título de la instrucción. -->
+              <h2>📂 ¿Cómo subir una prueba?</h2>
+
+              <!-- Información sobre el proceso para cargar una prueba. -->
+              <p>Dirígete al panel de la materia correspondiente y selecciona la opción “Subir Prueba”. Allí podrás cargar el archivo en formato PDF o documento. Asegúrate de que el archivo esté correctamente nombrado y organizado según la temática evaluada.</p>
+
+            </div>
+
+
+            <!--
+                BLOQUE 2
+                Explica cómo registrar las notas de los estudiantes.
+            -->
+            <div class="bloque-ayuda">
+
+              <!-- Título de la instrucción. -->
+              <h2>📝 ¿Cómo registrar notas?</h2>
+
+              <!-- Información sobre el registro de calificaciones. -->
+              <p>En la sección “Registro de Notas” selecciona la materia, ingresa el nombre del estudiante y la calificación correspondiente. Verifica que los datos sean correctos antes de guardar para mantener la información académica actualizada.</p>
+
+            </div>
+
+
+            <!--
+                BLOQUE 3
+                Explica la función de seguimiento académico.
+            -->
+            <div class="bloque-ayuda">
+
+              <!-- Título de la instrucción. -->
+              <h2>📊 ¿Cómo hacer seguimiento académico?</h2>
+
+              <!-- Información sobre la visualización del desempeño. -->
+              <p>La plataforma permite visualizar el desempeño por materia, facilitando la identificación de fortalezas y áreas que requieren refuerzo.</p>
+
+            </div>
+
+
+            <!--
+                BLOQUE 4
+                Explica cómo reportar errores del sistema.
+            -->
+            <div class="bloque-ayuda">
+
+              <!-- Título de la instrucción. -->
+              <h2>🛠 ¿Cómo reportar un error?</h2>
+
+              <!-- Información de contacto para reportar inconvenientes. -->
+              <p>Si detectas fallos técnicos o información incorrecta, comunica el inconveniente al administrador del sistema: Academix.IEGAA@gmail.com o 3008569838.</p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!--
+      PIE DE PÁGINA
+      Muestra el nombre y la descripción general
+      de la plataforma.
+  -->
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <!-- Nombre de la plataforma. -->
+      <small>ACADEMIX — Plataforma Educativa</small>
+
+    </div>
+
+  </footer>
+
+
+  <!--
+      ARCHIVO JAVASCRIPT
+      Contiene las funciones interactivas utilizadas
+      en la página del docente.
+  -->
+  <script src="estudiante-app.js"></script>
+
+</body>
+</html>

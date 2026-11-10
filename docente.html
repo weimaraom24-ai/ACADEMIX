@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- Configuración de caracteres para permitir tildes y caracteres especiales -->
+  <meta charset="utf-8">
+
+  <!-- Permite que la página se adapte a diferentes tamaños de pantalla -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Título que aparece en la pestaña del navegador -->
+  <title>ACADEMIX — Docentes</title>
+
+  <!-- Descripción de la página para los motores de búsqueda -->
+  <meta name="description" content="Plataforma ACADEMIX - panel para docentes">
+
+  <!-- Conecta la página con la hoja de estilos CSS -->
+  <link rel="stylesheet" href="estudiante.css">
+</head>
+
+<body>
+
+  <!-- Encabezado principal de la plataforma -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+
+      <!-- Sección izquierda del encabezado -->
+      <div class="header-start">
+
+        <!-- Botón para abrir el menú lateral -->
+        <button id="left-hamburger" class="left-hamburger" aria-label="Abrir menú">☰</button>
+
+        <!-- Contenedor de la identidad visual de ACADEMIX -->
+        <div class="brand-container">
+
+          <!-- Logo y nombre de la plataforma -->
+          <a class="brand" href="docente.html" aria-label="Inicio ACADEMIX">
+            <img src="logo.jpg" alt="logo Academix">
+
+            <!-- Información textual del logo -->
+            <div class="brand-meta">
+              <span class="brand-name">ACADEMIX</span>
+              <small> Docente</small>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Frase principal mostrada en el encabezado -->
+      <div class="header-phrase">tu cerebro en su prime</div>
+
+      <!-- Menú de navegación principal -->
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <ul>
+
+          <!-- Página de inicio del docente -->
+          <li><a class="active" href="docente.html">Inicio</a></li>
+
+          <!-- Sección para gestionar las guías -->
+          <li><a href="guiasD.html">Guías</a></li>
+
+          <!-- Sección para gestionar las notas -->
+          <li><a href="notasd.php">Notas</a></li>
+
+          <!-- Sección de soporte y ayuda -->
+          <li><a href="ayudaD.html">Soporte</a></li>
+        </ul>
+      </nav>
+
+      <!-- Botones de acciones del encabezado -->
+      <div class="header-actions">
+
+        <!-- Botón para salir y regresar a la página principal -->
+        <button class="btn-logout" type="button" onclick="window.location.href='logout.php'">Salir</button>
+
+        <!-- Botón para abrir el menú en dispositivos con menor tamaño de pantalla -->
+        <button id="btn-menu" class="btn-menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menú lateral de navegación -->
+  <nav id="side-panel" class="side-panel" aria-hidden="true">
+
+    <!-- Botón para cerrar el menú lateral -->
+    <button id="side-close" class="side-close" aria-label="Cerrar menú">×</button>
+
+    <!-- Opciones disponibles dentro del menú lateral -->
+    <ul>
+      <li><a href="docente.html">Inicio</a></li>
+      <li><a href="guiasD.html">Guías</a></li>
+      <li><a href="notasd.php">Notas</a></li>
+      <li><a href="ayudaD.html">Soporte</a></li>
+    </ul>
+  </nav>
+
+  <!-- Capa que aparece detrás del menú lateral -->
+  <div id="side-overlay" class="side-overlay" hidden></div>
+
+  <!-- Contenido principal de la página -->
+  <main>
+
+    <!-- Sección inicial o de bienvenida para los docentes -->
+    <section id="inicio" class="hero container">
+      <div class="hero-card">
+
+        <!-- Título principal de bienvenida -->
+        <h1>Bienvenidos, docentes</h1>
+
+        <!-- Descripción general de las funciones del panel docente -->
+        <p class="lead">Panel docente para gestionar contenidos, calificaciones y seguimiento del rendimiento estudiantil.</p>
+
+        <!-- Lista de funcionalidades disponibles para los docentes -->
+        <div class="features" style="margin-top:14px;line-height:1.6">
+          <ul>
+
+            <!-- Funcionalidad para administrar las guías -->
+            <li><strong>Guías:</strong> Subir y organizar materiales por asignatura.</li>
+
+            <!-- Funcionalidad para administrar las calificaciones -->
+            <li><strong>Notas:</strong> Registrar y exportar calificaciones.</li>
+
+            <!-- Funcionalidad de soporte -->
+            <li><strong>Soporte:</strong> Centro de ayuda y contacto administrativo.</li>
+          </ul>
+       
+
+      </div>
+    
+  </main>
+
+  <!-- Pie de página de la plataforma -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <!-- Nombre y descripción general de ACADEMIX -->
+      <small>ACADEMIX — Plataforma Educativa</small>
+    </div>
+  </footer>
+
+  <!-- Conecta el documento con el archivo JavaScript para las funciones interactivas -->
+  <script src="estudiante-app.js"></script>
+</body>
+</html>

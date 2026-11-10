@@ -1,0 +1,349 @@
+<!--
+    Documento HTML de la página de Ayuda de ACADEMIX.
+    El idioma principal de la página está configurado en español.
+-->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <!-- Permite utilizar correctamente caracteres especiales, tildes y ñ. -->
+    <meta charset="UTF-8">
+
+    <!-- Permite que la página se adapte correctamente a diferentes tamaños de pantalla. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título que aparece en la pestaña del navegador. -->
+    <title>ACADEMIX — Ayuda</title>
+
+    <!-- Vincula la hoja de estilos CSS utilizada por la página del estudiante. -->
+    <link rel="stylesheet" href="estudiante.css">
+
+</head>
+
+<body>
+
+  <!--
+      ENCABEZADO PRINCIPAL
+      Contiene el menú, el logo, el nombre de ACADEMIX,
+      la frase principal y las opciones de navegación.
+  -->
+  <header class="site-header" id="site-header">
+
+    <div class="container header-inner">
+
+      <!-- Botón para abrir el menú lateral en dispositivos compatibles. -->
+      <button id="left-hamburger" class="left-hamburger" aria-label="Abrir menú">☰</button>
+
+      <!-- Contenedor de la identidad visual de ACADEMIX. -->
+      <div class="brand-container">
+
+        <!--
+            Enlace que lleva a la página principal del estudiante.
+            También contiene el logo y el nombre de la plataforma.
+        -->
+        <a class="brand" href="estudiante.html" aria-label="Inicio ACADEMIX">
+
+          <!-- Logo de ACADEMIX. -->
+          <img src="logo.jpg" alt="logo Academix">
+
+          <!-- Información textual de la marca. -->
+          <div class="brand-meta">
+
+            <!-- Nombre de la plataforma. -->
+            <span class="brand-name">ACADEMIX</span>
+
+            <!-- Indica que la sección corresponde al estudiante. -->
+            <small> Estudiante</small>
+
+          </div>
+        </a>
+      </div>
+
+      <!-- Frase principal mostrada en el encabezado. -->
+      <div class="header-phrase">tu cerebro en su prime</div>
+
+      <!--
+          MENÚ DE NAVEGACIÓN PRINCIPAL
+          Contiene los enlaces a las diferentes secciones
+          disponibles para el estudiante.
+      -->
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+
+        <ul>
+
+          <!-- Enlace hacia la página de inicio. -->
+          <li><a href="estudiante.html">Inicio</a></li>
+
+          <li><a href="guias.html">Guías</a></li>
+          <li><a href="juegos.php">Juegos</a></li>
+
+          <!-- Enlace hacia las notas. -->
+          <li><a href="notas.html">Notas</a></li>
+
+          <!--
+              Enlace hacia la página actual.
+              La clase "active" permite identificarla visualmente.
+          -->
+          <li><a class="active" href="ayuda.html">Ayuda</a></li>
+
+        </ul>
+
+      </nav>
+
+      <!--
+          Acciones adicionales del encabezado.
+          Incluye el botón para salir y el botón del menú.
+      -->
+      <div class="header-actions">
+
+        <!--
+            Botón para salir de la plataforma.
+            Redirige al usuario hacia index.html.
+        -->
+        <button class="btn-logout" type="button" onclick="window.location.href='logout.php'">Salir</button>
+
+        <!-- Botón utilizado para abrir el menú lateral. -->
+        <button id="btn-menu" class="btn-menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!--
+      MENÚ LATERAL
+      Contiene una segunda versión de las opciones de navegación
+      para facilitar el acceso desde el menú desplegable.
+  -->
+  <nav id="side-panel" class="side-panel" aria-hidden="true">
+
+    <!-- Botón utilizado para cerrar el menú lateral. -->
+    <button id="side-close" class="side-close" aria-label="Cerrar menú">×</button>
+
+    <!-- Opciones de navegación del menú lateral. -->
+    <ul>
+
+      <!-- Enlace a la página de inicio. -->
+      <li><a href="estudiante.html">Inicio</a></li>
+
+      <li><a href="guias.html">Guías</a></li>
+      <li><a href="juegos.php">Juegos</a></li>
+
+      <!-- Enlace a las notas. -->
+      <li><a href="notas.html">Notas</a></li>
+
+      <!-- Enlace a la sección de ayuda. -->
+      <li><a href="ayuda.html">Ayuda</a></li>
+
+    </ul>
+
+  </nav>
+
+  <!--
+      Capa superpuesta utilizada junto con el menú lateral.
+      Se encuentra oculta inicialmente mediante el atributo hidden.
+  -->
+  <div id="side-overlay" class="side-overlay" hidden></div>
+
+
+  <!--
+      CONTENIDO PRINCIPAL
+      Contiene toda la información correspondiente
+      al centro de ayuda de ACADEMIX.
+  -->
+  <main>
+
+    <!-- Sección principal de ayuda. -->
+    <section class="hero container">
+
+      <!-- Tarjeta que contiene toda la información de soporte. -->
+      <div class="hero-card">
+
+        <!-- Etiqueta que identifica la sección como Centro de Ayuda. -->
+        <div class="hero-badge">Centro de Ayuda</div>
+
+        <!-- Título principal de la página. -->
+        <h1>Bienvenido al soporte de ACADEMIX</h1>
+
+        <!-- Descripción general de la sección de ayuda. -->
+        <p class="lead">Aquí encontrarás respuestas a las preguntas más frecuentes y orientación para usar la plataforma como estudiante.</p>
+
+
+        <!--
+            ACORDEÓN DE PREGUNTAS
+            Contiene diferentes elementos desplegables
+            con información sobre el uso de la plataforma.
+        -->
+        <div class="accordion" data-anim>
+
+          <!-- Preguntas frecuentes. -->
+          <details>
+
+            <!-- Título de la sección desplegable. -->
+            <summary>📘 Preguntas Frecuentes</summary>
+
+            <!-- Información relacionada con las preguntas frecuentes. -->
+            <p>¿Cómo ingreso a la plataforma? ¿Qué hago si olvidé mi contraseña? ¿Dónde puedo ver mis calificaciones? ¿Cómo consulto mis tareas? ¿Cómo contacto a un docente?</p>
+
+          </details>
+
+
+          <!-- Sección relacionada con problemas técnicos. -->
+          <details>
+
+            <!-- Título de la sección desplegable. -->
+            <summary>📩 Soporte Técnico</summary>
+
+            <!-- Orientación básica ante posibles errores técnicos. -->
+            <p>Qué hacer si la página no carga? Qué hacer si no aparecen las notas? A quién escribir en caso de error?</p>
+
+          </details>
+
+
+          <!-- Sección con los medios de contacto. -->
+          <details>
+
+            <!-- Título de la sección desplegable. -->
+            <summary>📞 Contacto Directo</summary>
+
+            <!-- Número de contacto del equipo de ACADEMIX. -->
+            <p>Comunícate al 3008765738 — Nuestro equipo responde en menos de 24 horas.</p>
+
+          </details>
+
+        </div>
+
+
+        <!--
+            LLAMADO A LA ACCIÓN
+            Invita al usuario a consultar instrucciones
+            y respuestas más detalladas.
+        -->
+        <div class="help-cta" data-anim>
+
+          <!-- Título del llamado a la acción. -->
+          <h3>¿Tienes alguna duda?</h3>
+
+          <!-- Explicación de la utilidad de la sección. -->
+          <p>Si tienes alguna de estas inquietudes, aquí encontrarás las instrucciones básicas para resolverlas de forma rápida y sencilla.</p>
+
+          <!--
+              Botón que dirige a la página con las instrucciones
+              y preguntas frecuentes.
+          -->
+          <a class="btn-primary" href="respuestas.html">Ver instrucciones y preguntas frecuentes</a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!--
+      PRIMER PIE DE PÁGINA
+      Muestra el nombre de la plataforma.
+  -->
+  <footer class="site-footer">
+
+    <div class="container">
+
+      <!-- Nombre y descripción general de la plataforma. -->
+      <small>ACADEMIX — Plataforma Educativa</small>
+
+    </div>
+
+  </footer>
+
+
+  <!--
+      SEGUNDO PIE DE PÁGINA
+      Contiene las redes sociales y los derechos de autor.
+  -->
+  <footer class="site-footer exotic-footer">
+
+    <div class="container footer-content">
+
+      <!--
+          REDES SOCIALES
+          Contiene enlaces directos a las diferentes
+          plataformas de contacto de ACADEMIX.
+      -->
+      <div class="footer-socials" aria-label="Redes sociales">
+
+        <!-- Enlace hacia Instagram de ACADEMIX. -->
+        <a href="https://www.instagram.com/academixproyect?igsh=MTZ6aXBzdzBpaXZhYQ==" target="_blank" rel="noopener noreferrer" class="social-chip instagram" aria-label="Instagram">
+
+          <span>📸</span>
+          <span>Instagram</span>
+
+        </a>
+
+
+        <!-- Enlace hacia TikTok de ACADEMIX. -->
+        <a href="https://www.tiktok.com/@proyecto.academix?_r=1&_t=ZS-9853ovSeJce" target="_blank" rel="noopener noreferrer" class="social-chip tiktok" aria-label="TikTok">
+
+          <span>🎵</span>
+          <span>TikTok</span>
+
+        </a>
+
+
+        <!--
+            Enlace que permite enviar un correo mediante Gmail.
+            Incluye un asunto y un mensaje predeterminado.
+        -->
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=academixof@gmail.com&su=Consulta%20desde%20ACADEMIX&body=Hola%2C%20quiero%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20plataforma." class="social-chip gmail" aria-label="Gmail">
+
+          <span>✉️</span>
+          <span>Gmail</span>
+
+        </a>
+
+
+        <!-- Enlace directo al contacto de WhatsApp. -->
+        <a href="https://wa.me/573138050529" target="_blank" rel="noopener noreferrer" class="social-chip whatsapp" aria-label="WhatsApp">
+
+          <span>💬</span>
+          <span>WhatsApp</span>
+
+        </a>
+
+      </div>
+
+
+      <!--
+          DERECHOS DE AUTOR
+          Muestra el año y los derechos reservados
+          de la plataforma.
+      -->
+      <div class="footer-copy">
+
+        <small>© 2026 ACADEMIX · Todos los derechos reservados</small>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+
+  <!--
+      ARCHIVOS JAVASCRIPT
+      Se cargan los archivos encargados de las funciones
+      y la interacción del menú y de la plataforma.
+  -->
+
+  <!-- Archivo JavaScript encargado del menú del estudiante. -->
+  <script src="estudiante-menu.js"></script>
+
+  <!-- Archivo JavaScript encargado de otras funciones de la plataforma. -->
+  <script src="estudiante-app.js"></script>
+
+</body>
+</html>

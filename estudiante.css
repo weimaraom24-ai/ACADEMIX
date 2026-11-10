@@ -1,0 +1,512 @@
+/* Reset + variables */
+
+/* Variables globales de colores, fondos y tamaños */
+:root{
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --accent:#0b5b8a;
+  --accent-2:#1f6f9b;
+  --muted:#65748b;
+  --glass:rgba(255,255,255,0.06);
+  --radius:12px;
+}
+
+/* Configuración general para todos los elementos */
+*{box-sizing:border-box}
+
+/* El documento ocupa todo el alto disponible y elimina márgenes */
+html,body{height:100%;margin:0}
+
+/* Estilos generales del cuerpo de la página */
+body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; background:linear-gradient(180deg,#f0f4fb,#eef4fb);color:#0f2740}
+
+/* Fondo específico para la página de guías docentes */
+.guias-docente-page{background:linear-gradient(180deg,#f0f4fb,#eef4fb);}
+
+/* Contenedor general con ancho máximo */
+.container{max-width:1100px;margin:0 auto;padding:20px}
+
+/* Header */
+
+/* Barra superior fija de navegación */
+.site-header{background:rgba(22, 41, 166, 0.95);backdrop-filter:blur(10px);color:#fff;position:fixed;top:0;left:0;width:100%;z-index:60}
+
+/* Contenedor interno del encabezado */
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;max-width:1100px;margin:0 auto}
+
+/* Agrupa el botón lateral y el logo */
+.header-start{display:flex;align-items:center;gap:12px;flex:1;min-width:0;justify-content:flex-start;margin-right:8px}
+
+/* Estilos del enlace que contiene el logo y nombre */
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;margin-left:6px}
+
+/* Frase ubicada en el encabezado */
+.header-phrase{margin-left:8px;font-style:italic;font-size:1.05rem;font-weight:700;color:#fbe7ff;text-shadow:0 2px 10px rgba(0,0,0,0.15);white-space:nowrap}
+
+/* Tamaño y apariencia del logo */
+.brand img{height:72px;width:auto;border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,0.16)}
+
+/* Organización vertical del nombre y rol */
+.brand-meta{display:flex;flex-direction:column;line-height:1.05}
+
+/* Nombre de ACADEMIX */
+.brand-name{font-size:1.25rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase}
+
+/* Texto pequeño debajo del nombre */
+.brand-meta small{font-size:0.82rem;color:rgba(255,255,255,0.78);margin-top:4px}
+
+/* El menú principal permanece oculto */
+.main-nav{display:none !important}
+
+/* Organización de los elementos de la lista del menú */
+.main-nav ul{list-style:none;display:flex;gap:10px;align-items:center;justify-content:center;margin:0;padding:0;flex-wrap:wrap}
+
+/* Apariencia de los enlaces del menú */
+.main-nav a{color:rgba(255,255,255,0.95);text-decoration:none;padding:10px 14px;border-radius:999px;font-weight:700;font-size:0.96rem;transition:all 180ms, transform 180ms}
+
+/* Efecto al pasar el cursor o cuando un enlace está activo */
+.main-nav a:hover, .main-nav a.active{background:rgba(255,255,255,0.12);transform:translateY(-1px)}
+
+/* Contenedor de los botones del encabezado */
+.header-actions{display:flex;align-items:center;gap:12px}
+
+/* Botón para cerrar sesión */
+.btn-logout{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;background:rgba(255,255,255,0.18);color:#fff;border-radius:999px;border:1px solid rgba(255,255,255,0.32);font-weight:700;cursor:pointer;transition:transform 180ms,background 180ms;}
+
+/* Efecto visual del botón de cerrar sesión */
+.btn-logout:hover{background:rgba(255,255,255,0.28);transform:translateY(-1px);}
+
+/* Botón del menú móvil */
+.btn-menu{background:transparent;border:0;color:#fff;font-size:24px;display:none;cursor:pointer}
+
+/* Left hamburger button and side panel */
+
+/* Botón que abre el panel lateral */
+.left-hamburger{background:transparent;border:0;color:#fff;font-size:28px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;margin-right:8px}
+
+/* Panel lateral oculto inicialmente fuera de la pantalla */
+.side-panel{position:fixed;left:-320px;top:0;height:100%;width:280px;background:rgba(22, 41, 166, 0.95);color:#fff;padding:20px;box-shadow:8px 0 40px rgba(4,20,60,0.4);transition:left 320ms cubic-bezier(.2,.9,.2,1);z-index:120}
+
+/* Posición del panel cuando está abierto */
+.side-panel.open{left:0}
+
+/* Botón para cerrar el panel lateral */
+.side-panel .side-close{background:transparent;border:0;color:#fff;font-size:30px;position:absolute;right:12px;top:12px;cursor:pointer}
+
+/* Lista de opciones del panel lateral */
+.side-panel ul{list-style:none;padding:56px 0 0;margin:0;display:flex;flex-direction:column;gap:12px}
+
+/* Enlaces del panel lateral */
+.side-panel a{color:#fff;text-decoration:none;padding:12px 14px;border-radius:8px;font-weight:700}
+
+/* Efecto al pasar el cursor sobre los enlaces */
+.side-panel a:hover{background:rgba(255,255,255,0.08)}
+
+/* Left hamburger visible on all sizes; style keeps it compact */
+
+/* Overlay shown when side panel is open */
+
+/* Capa oscura que aparece detrás del panel lateral */
+#side-overlay{position:fixed;inset:0;background:rgba(4,12,30,0.45);z-index:110;opacity:0;pointer-events:none;transition:opacity 220ms ease}
+
+/* Capa visible cuando el panel está abierto */
+#side-overlay.show{opacity:1;pointer-events:auto}
+
+/* Hero */
+
+/* Espacio superior para evitar que el contenido quede debajo del header */
+main{padding-top:108px}
+
+/* Espaciado general de la sección principal */
+.hero{padding:48px 20px}
+
+/* Tarjeta principal de bienvenida */
+.hero-card{position:relative;background:linear-gradient(180deg,#ffffff,#f3f7ff);padding:36px;padding-right:280px;border-radius:24px;box-shadow:0 24px 70px rgba(11,35,66,0.1);border:1px solid rgba(15,39,64,0.08);overflow:hidden}
+
+/* Elementos decorativos circulares de la tarjeta */
+.hero-card::before,
+.hero-card::after{content:'';position:absolute;border-radius:50%;pointer-events:none;opacity:0.35}
+
+/* Decoración ubicada en la esquina superior derecha */
+.hero-card::before{width:170px;height:170px;top:-40px;right:-40px;background:radial-gradient(circle, rgba(11,91,138,0.28), transparent 58%)}
+
+/* Decoración ubicada en la esquina inferior izquierda */
+.hero-card::after{width:120px;height:120px;bottom:-35px;left:-30px;background:radial-gradient(circle, rgba(31,105,155,0.22), transparent 60%)}
+
+/* Etiqueta destacada de la sección principal */
+.hero-badge{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:rgba(11,91,138,0.12);color:#0f2740;font-weight:700;font-size:0.95rem;margin-bottom:20px;position:relative;z-index:1}
+
+/* Título principal */
+.hero-card h1{margin:0 0 14px 0;font-size:34px;line-height:1.06;position:relative;z-index:1;color:#0f2740}
+
+/* Texto descriptivo principal */
+.lead{color:var(--muted);margin:0;position:relative;z-index:1}
+
+/* Contenedor de características */
+.features{position:relative;z-index:1;margin-top:24px}
+
+/* Lista de características */
+.features ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+
+/* Cada elemento de la lista */
+.features li{padding:14px 16px;background:#f8fbff;border-radius:14px;color:#24344f;line-height:1.65;border:1px solid #e8eef5}
+
+/* Imagen decorativa del cerebro */
+.hero-cerebrito{position:absolute;right:28px;bottom:18px;width:330px;max-height:300px;object-fit:contain;object-position:center bottom;z-index:1}
+
+/* Formulario para subir archivos */
+.upload-form{display:grid;gap:10px;margin-top:14px}
+
+/* Oculta el campo original para seleccionar archivos */
+.upload-input{display:none}
+
+/* Botón del formulario ocupa todo el ancho */
+.upload-form button{width:100%}
+
+/* Resultado después de subir un archivo */
+.upload-result{padding-top:160px}
+
+/* Botón dentro del resultado de carga */
+.upload-result .btn-primary{display:inline-block;margin-top:20px;text-decoration:none}
+
+/* Layout */
+
+/* Espaciado general de las secciones */
+.section{padding:28px 20px}
+
+/* Distribución en dos columnas */
+.grid{display:grid;gap:18px;grid-template-columns:2fr 1fr;align-items:center;}
+
+/* Contenedor del contenido */
+.content{background:transparent;display:flex;align-items:center;justify-content:center;}
+
+/* Tarjeta utilizada para subir guías */
+.card.subir{width:100%;max-width:680px;min-height:390px;padding:34px;background-image:linear-gradient(135deg,rgba(22,41,166,.38),rgba(32,59,192,.22) 58%,rgba(16,32,120,.4)),url("imagen de fondo.jpeg");background-size:cover;background-position:center;border:1px solid rgba(255,255,255,0.38);box-shadow:0 22px 50px rgba(4,12,75,0.3);backdrop-filter:blur(4px);position:relative;overflow:hidden;animation:upload-panel-enter 600ms ease both;}
+
+/* Patrón decorativo sobre la tarjeta */
+.card.subir::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.08;background:repeating-linear-gradient(135deg,transparent 0 22px,rgba(255,255,255,.14) 23px 24px);}
+
+/* Mantiene estos elementos por encima de la decoración */
+.upload-panel-head,.card.subir label,.card.subir input,.card.subir select,.card.subir .btn-primary,.upload-hint{position:relative;z-index:1;}
+
+/* Encabezado del panel de carga */
+.upload-panel-head{margin-bottom:28px;}
+
+/* Etiqueta pequeña del panel */
+.upload-panel-badge{display:inline-block;padding:6px 10px;border:1px solid rgba(255,255,255,.35);border-radius:999px;color:#dfe5ff;font-size:.72rem;font-weight:800;letter-spacing:.08em;}
+
+/* Título del panel de subida */
+.card.subir h2{margin:14px 0 6px;color:#fff;font-size:2rem;}
+
+/* Texto descriptivo del panel */
+.upload-panel-head p{margin:0;color:rgba(255,255,255,.78);font-size:.98rem;}
+
+/* Etiquetas de los campos del formulario */
+.card.subir label{display:block;margin:0 0 8px;color:rgba(255,255,255,0.92);font-weight:700;}
+
+/* Campos de entrada y selección */
+.card.subir input, .card.subir select{width:100%;margin:0 0 22px;padding:13px 14px;background:#fff;border:1px solid rgba(255,255,255,0.9);border-radius:10px;}
+
+/* Apariencia específica del selector de archivos */
+.card.subir input[type=file]{color:#24344f;}
+
+/* Efecto de enfoque en los campos */
+.card.subir input:focus,.card.subir select:focus{outline:3px solid rgba(255,255,255,.28);outline-offset:2px;}
+
+/* Texto de ayuda debajo del formulario */
+.upload-hint{display:block;margin:-12px 0 18px;color:rgba(255,255,255,.7);font-size:.82rem;}
+
+/* Botón principal del formulario */
+.card.subir .btn-primary{width:100%;margin-top:4px;background:#fff;color:#1629a6;font-weight:800;transition:transform 180ms ease,box-shadow 180ms ease,background 180ms ease;}
+
+/* Cambio de color al pasar el cursor */
+.card.subir .btn-primary:hover{background:#e8edff;color:#102078;}
+
+/* Movimiento y sombra del botón */
+.card.subir .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(4,12,75,.28);}
+
+/* Animación de entrada del panel */
+@keyframes upload-panel-enter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+/* Panel lateral de información */
+.aside{background:linear-gradient(180deg, rgba(11,91,138,0.15), rgba(255,255,255,0.96));padding:18px;border-radius:18px;box-shadow:0 10px 30px rgba(11,35,66,0.08);border:1px solid rgba(11,91,138,0.12);}
+
+/* Título del panel lateral */
+.aside h2{color:#0f2740;}
+
+/* Elementos individuales de las guías */
+.guia-item{background:rgba(255,255,255,0.84);padding:12px 14px;margin-bottom:12px;border-radius:14px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 10px 18px rgba(11,35,66,0.06);}
+
+/* Lista de enlaces rápidos */
+.quick-links{list-style:none;padding:0;margin:0}
+
+/* Enlaces rápidos */
+.quick-links a{text-decoration:none;color:var(--accent);font-weight:700}
+
+/* Cards */
+
+/* Organización de las tarjetas */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:12px}
+
+/* Organización interna de cada tarjeta */
+.cards > .card{display:flex;flex-direction:column}
+
+/* El formulario queda en la parte inferior de la tarjeta */
+.cards > .card .upload-form{margin-top:auto}
+
+/* Estilos generales de las tarjetas */
+.card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 12px 36px rgba(11,35,66,0.06);transition:transform 220ms,box-shadow 220ms}
+
+/* Efecto al pasar el cursor sobre una tarjeta */
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 60px rgba(11,35,66,0.10)}
+
+/* Texto con apariencia secundaria */
+.muted{color:var(--muted)}
+
+/* Buttons */
+
+/* Botón principal */
+.btn-primary{background:linear-gradient(90deg,rgba(22,41,166,0.95),rgba(11,38,140,0.95));color:#fff;padding:10px 14px;border-radius:10px;border:0;cursor:pointer}
+
+/* Cambio de fondo del botón principal */
+.btn-primary:hover{background:linear-gradient(90deg,rgba(11,38,140,0.95),rgba(8,29,113,0.95));}
+
+/* Botón secundario o deshabilitado */
+.btn-muted{background:#eef2f5;color:var(--muted);padding:10px 14px;border-radius:10px;border:0}
+
+/* Tables */
+
+/* Tabla de notas */
+.notes-table{width:100%;border-collapse:collapse;background:var(--card);border-radius:8px;overflow:hidden}
+
+/* Celdas y encabezados de la tabla */
+.notes-table th, .notes-table td{padding:14px 16px;text-align:left;border-bottom:1px solid #eef3f7}
+
+/* Encabezado de la tabla */
+.notes-table thead{background:linear-gradient(90deg,#f7fbfe,#ffffff);font-weight:800;color:var(--accent)}
+
+/* Efecto al pasar el cursor sobre una fila */
+.notes-table tbody tr:hover{background:linear-gradient(90deg,rgba(11,91,138,0.03),rgba(31,105,155,0.02))}
+
+/* Promedio mostrado debajo de la tabla */
+.promedio{margin-top:12px;font-weight:700;font-size:16px;color:var(--accent)}
+
+/* Panel wrapper for notes */
+
+/* Contenedor general para las notas */
+.panel{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 14px 40px rgba(11,35,66,0.06)}
+
+/* Tamaño de texto de los encabezados */
+.notes-table th{font-size:15px}
+
+/* Tamaño y color del contenido de las celdas */
+.notes-table td{font-size:15px;color:#0f2740}
+
+/* Adaptación de la tabla para pantallas pequeñas */
+@media(max-width:700px){
+  .notes-table th, .notes-table td{padding:10px}
+  .notes-table thead{display:none}
+  .notes-table tbody tr{display:block;border-bottom:1px solid #eef3f7;padding:8px 0}
+  .notes-table tbody tr td{display:flex;justify-content:space-between;padding:6px 0}
+}
+
+/* Accordion */
+
+/* Estilo de los elementos desplegables */
+.accordion details{background:var(--card);padding:12px;border-radius:10px;margin-bottom:8px}
+
+/* Reveal animation */
+
+/* Estado inicial de los elementos que tendrán animación */
+[data-anim]{opacity:0;transform:translateY(12px);transition:opacity 520ms ease,transform 520ms ease}
+
+/* Estado final después de aparecer */
+.reveal{opacity:1;transform:none}
+
+/* Responsive */
+
+@media(max-width:900px){
+
+  /* Ajustes de la tabla para pantallas pequeñas */
+  .notes-table th, .notes-table td{padding:10px}
+
+  /* Ocultar encabezado de la tabla en móvil */
+  .notes-table thead{display:none}
+
+  /* Convertir cada fila en un bloque */
+  .notes-table tbody tr{display:block;border-bottom:1px solid #eef3f7;padding:8px 0}
+
+  /* Organizar las celdas de la fila */
+  .notes-table tbody tr td{display:flex;justify-content:space-between;padding:6px 0}
+}
+
+/* Ajustes principales para pantallas menores a 900px */
+@media(max-width:900px){
+
+  /* Aumentar el espacio superior del contenido */
+  main{padding-top:132px}
+
+  /* Convertir el encabezado en una cuadrícula */
+  .header-inner{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) auto;
+    grid-template-areas:
+      "start actions"
+      "phrase phrase";
+    gap:6px 10px;
+    padding:10px 14px;
+  }
+
+  /* Área inicial del encabezado */
+  .header-start{grid-area:start;gap:8px;margin-right:0}
+
+  /* Ajustes del logo y nombre */
+  .brand{gap:8px;margin-left:0;min-width:0}
+
+  /* Tamaño del logo en pantallas pequeñas */
+  .brand img{height:52px;width:52px;object-fit:cover;border-radius:10px}
+
+  /* Tamaño del nombre */
+  .brand-name{font-size:1rem}
+
+  /* Tamaño del texto pequeño */
+  .brand-meta small{font-size:.7rem;margin-top:2px}
+
+  /* Ubicación y tamaño de la frase */
+  .header-phrase{grid-area:phrase;margin:0;text-align:center;font-size:.85rem;line-height:1.2}
+
+  /* Acciones del encabezado */
+  .header-actions{grid-area:actions;gap:8px}
+
+  /* Tamaño del botón salir */
+  .btn-logout{padding:8px 12px;font-size:.86rem}
+
+  /* Mantener oculto el botón de menú */
+  .btn-menu{display:none}
+
+  /* Mantener oculto el menú principal */
+  .main-nav{display:none !important}
+
+  /* Mostrar el menú cuando tiene la clase open */
+  .main-nav.open ul{display:flex;flex-direction:column;position:absolute;left:12px;right:12px;top:68px;background:linear-gradient(180deg,var(--accent),var(--accent-2));padding:12px;border-radius:10px}
+
+  /* Tamaño de los enlaces del menú móvil */
+  .main-nav.open a{font-size:18px;padding:12px 16px}
+
+  /* Convertir la cuadrícula en una sola columna */
+  .grid{grid-template-columns:1fr}
+
+  /* Reducir tamaño del título */
+  .hero-card h1{font-size:22px}
+
+  /* Ajustar el espacio de la tarjeta principal */
+  .hero-card{padding-right:36px;padding-bottom:180px}
+
+  /* Reducir tamaño de la imagen del cerebro */
+  .hero-cerebrito{right:20px;width:100px;max-height:100px}
+}
+
+/* Accessibility focus */
+
+/* Estilos de enfoque para navegación mediante teclado */
+.main-nav a:focus,
+.btn-register:focus,
+.btn-menu:focus{outline:3px solid rgba(255,255,255,0.28);outline-offset:4px}
+
+@media(max-width:900px){
+
+  /* Ocultar la lista del menú principal */
+  .main-nav ul{display:none}
+
+  /* Ajustar el espacio superior de la página */
+  main{padding-top:118px}
+
+  /* Mostrar y estilizar el menú cuando está abierto */
+  .main-nav.open ul{display:flex;flex-direction:column;position:absolute;left:12px;right:12px;top:68px;background:rgba(11,91,138,0.98);padding:12px;border-radius:14px;box-shadow:0 20px 60px rgba(0,0,0,0.22)}
+
+  /* Ajustar tamaño y espacio de los enlaces */
+  .main-nav.open a{font-size:18px;padding:12px 16px}
+
+  /* Mostrar el contenido en una sola columna */
+  .grid{grid-template-columns:1fr}
+
+  /* Reducir tamaño del título */
+  .hero-card h1{font-size:22px}
+}
+
+/* Ajustes adicionales para celulares pequeños */
+@media(max-width:420px){
+
+  /* Reducir el espacio horizontal del encabezado */
+  .header-inner{padding-left:10px;padding-right:10px}
+
+  /* Reducir tamaño del botón lateral */
+  .left-hamburger{font-size:24px;margin-right:2px}
+
+  /* Reducir tamaño del logo */
+  .brand img{height:46px;width:46px}
+
+  /* Reducir tamaño del nombre */
+  .brand-name{font-size:.9rem}
+
+  /* Reducir tamaño de la frase */
+  .header-phrase{font-size:.78rem}
+}
+
+/* Footer exótico */
+
+/* Espacio superior del pie de página */
+.site-footer{margin-top:40px}
+
+/* Fondo y estilos generales del footer */
+.exotic-footer{
+  background:linear-gradient(135deg, #eaf3ff 0%, #f6f9ff 45%, #e6f0ff 100%);
+  color:#0f2740;
+  padding:32px 0;
+  border-top:1px solid rgba(15,39,64,0.08);
+  box-shadow:0 -12px 30px rgba(11,35,66,0.08);
+}
+
+/* Organización del contenido del footer */
+.footer-content{
+  display:grid;
+  gap:18px;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+/* Contenedor de los botones de redes sociales */
+.footer-socials{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+
+/* Estilo general de los botones sociales */
+.social-chip{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 14px;border-radius:999px;
+  text-decoration:none;color:#fff;font-weight:700;
+  background:linear-gradient(135deg, #0b5b8a 0%, #1f6f9b 100%);
+  border:1px solid rgba(255,255,255,0.5);
+  box-shadow:0 8px 18px rgba(11,91,138,0.16);
+  transition:transform 180ms ease, box-shadow 180ms ease;
+}
+
+/* Efecto de movimiento de los botones sociales */
+.social-chip:hover{transform:translateY(-3px);box-shadow:0 12px 22px rgba(11,91,138,0.24)}
+
+/* Color específico para Instagram */
+.social-chip.instagram{background:linear-gradient(135deg, #7b2cbf 0%, #c77dff 100%);}
+
+/* Color específico para TikTok */
+.social-chip.tiktok{background:linear-gradient(135deg, #111111 0%, #2e2e2e 100%);}
+
+/* Color específico para Gmail */
+.social-chip.gmail{background:linear-gradient(135deg, #c62828 0%, #ef5350 100%);}
+
+/* Color específico para WhatsApp */
+.social-chip.whatsapp{background:linear-gradient(135deg, #128c7e 0%, #25d366 100%);}
+
+/* Texto de derechos o información del footer */
+.footer-copy{color:#4c5f73;font-size:0.9rem}
+
+/* Contenedor pequeño con un ancho máximo diferente */
+.container.small{max-width:900px}

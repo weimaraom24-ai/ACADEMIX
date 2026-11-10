@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- Configuración de caracteres para permitir tildes y caracteres especiales -->
+  <meta charset="utf-8">
+
+  <!-- Permite que la página se adapte correctamente a dispositivos móviles -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Título que aparece en la pestaña del navegador -->
+  <title>ACADEMIX — Estudiantes</title>
+
+  <!-- Descripción de la página para los buscadores -->
+  <meta name="description" content="Plataforma ACADEMIX - guías, juegos y seguimiento para estudiantes">
+
+  <!-- Enlace al archivo de estilos CSS de la página -->
+  <link rel="stylesheet" href="estudiante.css">
+</head>
+
+<body>
+
+  <!-- Encabezado principal de la plataforma -->
+  <header class="site-header" id="site-header">
+
+    <!-- Contenedor principal del encabezado -->
+    <div class="container header-inner">
+
+      <!-- Sección izquierda del encabezado -->
+      <div class="header-start">
+
+        <!-- Botón que permite abrir el menú lateral -->
+        <button id="left-hamburger" class="left-hamburger" aria-label="Abrir menú">☰</button>
+
+        <!-- Contenedor de la identidad de ACADEMIX -->
+        <div class="brand-container">
+
+          <!-- Enlace que lleva nuevamente a la página principal del estudiante -->
+          <a class="brand" href="estudiante.html" aria-label="Inicio ACADEMIX">
+
+            <!-- Logo de la plataforma -->
+            <img src="logo.jpg" alt="logo Academix">
+
+            <!-- Información de la marca -->
+            <div class="brand-meta">
+
+              <!-- Nombre de la plataforma -->
+              <span class="brand-name">ACADEMIX</span>
+
+              <!-- Identificación del tipo de usuario -->
+              <small> Estudiante</small>
+
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Frase principal mostrada en el encabezado -->
+      <div class="header-phrase">tu cerebro en su prime</div>
+
+      <!-- Menú principal de navegación -->
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+
+        <!-- Lista de opciones disponibles -->
+        <ul>
+
+          <!-- Enlace a la página de inicio -->
+          <li><a href="estudiante.html">Inicio</a></li>
+
+          <li><a href="guias.html">Guías</a></li>
+          <li><a href="juegos.php">Juegos</a></li>
+
+          <!-- Enlace a las notas -->
+          <li><a href="notas.html">Notas</a></li>
+
+          <!-- Enlace a la sección de ayuda -->
+          <li><a href="ayuda.html">Ayuda</a></li>
+
+        </ul>
+      </nav>
+
+      <!-- Acciones disponibles en el encabezado -->
+      <div class="header-actions">
+
+        <!-- Botón para salir de la plataforma y regresar al inicio -->
+        <button class="btn-logout" type="button" onclick="window.location.href='logout.php'">Salir</button>
+
+        <!-- Botón del menú adicional para dispositivos móviles -->
+        <button id="btn-menu" class="btn-menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Panel lateral de navegación -->
+  <nav id="side-panel" class="side-panel" aria-hidden="true">
+
+    <!-- Botón para cerrar el panel lateral -->
+    <button id="side-close" class="side-close" aria-label="Cerrar menú">×</button>
+
+    <!-- Opciones del menú lateral -->
+    <ul>
+
+      <!-- Enlace a la página de inicio -->
+      <li><a href="estudiante.html">Inicio</a></li>
+
+      <li><a href="guias.html">Guías</a></li>
+      <li><a href="juegos.php">Juegos</a></li>
+
+      <!-- Enlace a las notas -->
+      <li><a href="notas.html">Notas</a></li>
+
+      <!-- Enlace a la ayuda -->
+      <li><a href="ayuda.html">Ayuda</a></li>
+
+    </ul>
+  </nav>
+
+  <!-- Capa de fondo que aparece cuando se abre el menú lateral -->
+  <div id="side-overlay" class="side-overlay" hidden></div>
+
+  <!-- Contenido principal de la página -->
+  <main>
+
+    <!-- Sección inicial de bienvenida -->
+    <section id="inicio" class="hero container">
+
+      <!-- Tarjeta principal de bienvenida -->
+      <div class="hero-card">
+
+        <!-- Identificador que muestra el tipo de usuario -->
+        <div class="hero-badge">Estudiante</div>
+
+        <!-- Título principal de la plataforma -->
+        <h1>Bienvenidos a Nuestra Plataforma ACADEMIX</h1>
+
+        <!-- Descripción general del proyecto -->
+        <p class="lead">Somos un proyecto académico enfocado en fortalecer la preparación estudiantil para Saber. Ofrecemos recursos y herramientas para el aprendizaje y el seguimiento del rendimiento.</p>
+
+        <!-- Contenedor de las principales funciones de la plataforma -->
+        <div class="features" style="margin-top:14px;line-height:1.6">
+
+          <!-- Lista de funcionalidades -->
+          <ul>
+
+            <li><strong>Guías:</strong> Materiales organizados por asignatura para repaso y práctica.</li>
+            <li><strong>Juegos:</strong> Retos de preguntas para practicar las materias.</li>
+
+            <!-- Información sobre las notas -->
+            <li><strong>Notas:</strong> Registro de calificaciones por materia y promedio acumulado.</li>
+
+            <!-- Información sobre el soporte -->
+            <li><strong>Soporte:</strong> Centro de ayuda con preguntas frecuentes y contacto.</li>
+
+          </ul>
+        </div>
+
+        <!-- Imagen decorativa del cerebro de ACADEMIX -->
+        <img class="hero-cerebrito" src="cerebrito.jpeg" alt="Cerebrito de Academix">
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página de la plataforma -->
+  <footer class="site-footer exotic-footer">
+
+    <!-- Contenedor del contenido del pie de página -->
+    <div class="container footer-content">
+
+      <!-- Sección de redes sociales -->
+      <div class="footer-socials" aria-label="Redes sociales">
+
+        <!-- Enlace oficial de Instagram de ACADEMIX -->
+        <a href="https://www.instagram.com/academixproyect?igsh=MTZ6aXBzdzBpaXZhYQ==" target="_blank" rel="noopener noreferrer" class="social-chip instagram" aria-label="Instagram">
+
+          <!-- Icono de Instagram -->
+          <span>📸</span>
+
+          <!-- Nombre de la red social -->
+          <span>Instagram</span>
+        </a>
+
+        <!-- Enlace oficial de TikTok de ACADEMIX -->
+        <a href="https://www.tiktok.com/@proyecto.academix?_r=1&_t=ZS-9853ovSeJce" target="_blank" rel="noopener noreferrer" class="social-chip tiktok" aria-label="TikTok">
+
+          <!-- Icono de TikTok -->
+          <span>🎵</span>
+
+          <!-- Nombre de la red social -->
+          <span>TikTok</span>
+        </a>
+
+        <!-- Enlace para enviar un correo mediante Gmail -->
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=academixof@gmail.com&su=Consulta%20desde%20ACADEMIX&body=Hola%2C%20quiero%20recibir%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20plataforma." class="social-chip gmail" aria-label="Gmail">
+
+          <!-- Icono de correo -->
+          <span>✉️</span>
+
+          <!-- Nombre del servicio -->
+          <span>Gmail</span>
+        </a>
+
+        <!-- Enlace de contacto mediante WhatsApp -->
+        <a href="https://wa.me/573138050529" target="_blank" rel="noopener noreferrer" class="social-chip whatsapp" aria-label="WhatsApp">
+
+          <!-- Icono de WhatsApp -->
+          <span>💬</span>
+
+          <!-- Nombre del servicio -->
+          <span>WhatsApp</span>
+        </a>
+
+      </div>
+
+      <!-- Información de derechos de autor -->
+      <div class="footer-copy">
+
+        <!-- Año y nombre de la plataforma -->
+        <small>© 2026 ACADEMIX · Todos los derechos reservados</small>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Archivo JavaScript encargado de las interacciones de la página -->
+  <script src="estudiante-app.js"></script>
+
+</body>
+</html>

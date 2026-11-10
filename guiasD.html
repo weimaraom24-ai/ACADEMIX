@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <!-- Define la codificación de caracteres utilizada por la página -->
+  <meta charset="utf-8">
+
+  <!-- Permite adaptar la página a diferentes tamaños de pantalla -->
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Título que aparece en la pestaña del navegador -->
+  <title>ACADEMIX — Guías (Docentes)</title>
+
+  <!-- Conecta la página con la hoja de estilos CSS -->
+  <link rel="stylesheet" href="estudiante.css">
+
+  <!-- Descripción de la página -->
+  <meta name="description" content="Gestión de guías para docentes">
+</head>
+
+<!-- Cuerpo de la página para la sección de guías docentes -->
+<body class="guias-docente-page">
+
+  <!-- Encabezado principal de ACADEMIX -->
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+
+      <!-- Contenedor izquierdo del encabezado -->
+      <div class="header-start">
+
+        <!-- Botón para abrir el menú lateral -->
+        <button id="left-hamburger" class="left-hamburger" aria-label="Abrir menú">☰</button>
+
+        <!-- Contenedor del logo de ACADEMIX -->
+        <div class="brand-container">
+          <a class="brand" href="docente.html" aria-label="Inicio ACADEMIX">
+
+            <!-- Logo de la plataforma -->
+            <img src="logo.jpg" alt="logo Academix">
+
+            <!-- Nombre de la plataforma y tipo de usuario -->
+            <div class="brand-meta">
+              <span class="brand-name">ACADEMIX</span>
+              <small> Docente</small>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Frase principal mostrada en el encabezado -->
+      <div class="header-phrase">tu cerebro en su prime</div>
+
+      <!-- Menú principal de navegación para docentes -->
+      <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
+        <ul>
+
+          <!-- Enlace hacia la página principal del docente -->
+          <li><a href="docente.html">Inicio</a></li>
+
+          <!-- Enlace hacia la sección actual de guías -->
+          <li><a class="active" href="guiasD.html">Guías</a></li>
+
+
+          <!-- Enlace hacia la sección de notas -->
+          <li><a href="notasd.php">Notas</a></li>
+
+          <!-- Enlace hacia la sección de soporte -->
+          <li><a href="ayudaD.html">Soporte</a></li>
+
+        </ul>
+      </nav>
+
+      <!-- Botones de acciones del encabezado -->
+      <div class="header-actions">
+
+        <!-- Botón para salir de la plataforma -->
+        <button class="btn-logout" type="button" onclick="window.location.href='logout.php'">Salir</button>
+
+        <!-- Botón de menú para dispositivos pequeños -->
+        <button id="btn-menu" class="btn-menu" aria-label="Abrir menú" aria-expanded="false">☰</button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Menú lateral de navegación -->
+  <nav id="side-panel" class="side-panel" aria-hidden="true">
+
+    <!-- Botón para cerrar el menú lateral -->
+    <button id="side-close" class="side-close" aria-label="Cerrar menú">×</button>
+
+    <!-- Opciones disponibles para el docente -->
+    <ul>
+      <li><a href="docente.html">Inicio</a></li>
+      <li><a href="guiasD.html">Guías</a></li>
+      <li><a href="notasd.php">Notas</a></li>
+      <li><a href="ayudaD.html">Soporte</a></li>
+    </ul>
+  </nav>
+
+  <!-- Fondo que aparece cuando se abre el menú lateral -->
+  <div id="side-overlay" class="side-overlay" hidden></div>
+
+  <!-- Contenido principal de la página -->
+  <main>
+
+    <!-- Sección principal de gestión de guías -->
+    <section id="inicio" class="hero container">
+
+      <!-- Tarjeta principal de la sección -->
+      <div class="hero-card">
+
+        <!-- Título principal -->
+        <h1>Gestión de Guías Académicas</h1>
+
+        <!-- Descripción de las funciones disponibles para el docente -->
+        <p class="lead">Desde esta sección puede visualizar las guías disponibles para los estudiantes y cargar nuevas guías según la planificación académica.</p>
+
+        <!-- Sección que contiene el formulario y las guías disponibles -->
+        <div class="section">
+          <div class="grid">
+
+            <!-- Contenedor del formulario de subida -->
+            <div class="content">
+
+              <!-- Formulario utilizado para subir nuevas guías -->
+              <form class="card subir" action="subir_guia.php" method="POST" enctype="multipart/form-data">
+
+                <!-- Encabezado del panel de carga -->
+                <div class="upload-panel-head">
+
+                  <!-- Indicador visual de nuevo material -->
+                  <span class="upload-panel-badge">✦ NUEVO MATERIAL</span>
+
+                  <!-- Título del formulario -->
+                  <h2>Subir Nueva Guía</h2>
+
+                  <!-- Descripción del formulario -->
+                  <p>Comparte material de estudio con tus estudiantes.</p>
+                </div>
+
+                <!-- Campo para ingresar el título de la guía -->
+                <label for="titulo">Título de la guía</label>
+                <input type="text" id="titulo" name="titulo" placeholder="Ej: Comprensión de Textos" required>
+
+                <!-- Campo para seleccionar la materia -->
+                <label for="materia">Seleccione la materia</label>
+                <select id="materia" name="materia" required>
+
+                  <!-- Opción inicial del selector -->
+                  <option value="">Seleccione una materia</option>
+
+                  <!-- Materias disponibles -->
+                  <option value="Lectura Crítica">Lectura Crítica</option>
+                  <option value="Matemáticas">Matemáticas</option>
+                  <option value="Ciencias Naturales">Ciencias Naturales</option>
+                  <option value="Competencias Ciudadanas">Competencias Ciudadanas</option>
+                  <option value="Inglés">Inglés</option>
+                </select>
+
+                <label for="grado">Seleccione el grado</label>
+<select id="grado" name="grado" required>
+  <option value="">Seleccione un grado</option>
+  <option value="10-1">10-1</option>
+  <option value="10-2">10-2</option>
+  <option value="10-3">10-3</option>
+  <option value="10-4">10-4</option>
+  <option value="10-5">10-5</option>
+  <option value="10-6">10-6</option>
+  <option value="10-7">10-7</option>
+  <option value="11-1">11-1</option>
+  <option value="11-2">11-2</option>
+  <option value="11-3">11-3</option>
+  <option value="11-4">11-4</option>
+  <option value="11-5">11-5</option>
+  <option value="11-6">11-6</option>
+  <option value="11-7">11-7</option>
+</select>
+
+                <!-- Campo para escribir una descripción de la guía -->
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" name="descripcion" placeholder="Escribe una breve descripción de la guía"></textarea>
+
+                <!-- Campo para establecer la fecha límite de entrega -->
+                <label for="fecha_limite">Fecha límite de entrega</label>
+                <input type="datetime-local" id="fecha_limite" name="fecha_limite" required>
+
+                <!-- Campo para seleccionar el archivo de la guía -->
+                <label for="archivo">Seleccione el archivo</label>
+                <input type="file" id="archivo" name="archivo" accept=".pdf,.doc,.docx" required>
+
+                <!-- Información sobre los formatos permitidos -->
+                <small class="upload-hint">
+                  Formatos permitidos: PDF, DOC o DOCX
+                </small>
+
+                <!-- Botón para enviar el formulario y subir la guía -->
+                <button class="btn-primary" type="submit">Subir Guía</button>
+
+              </form>
+            </div>
+
+            <!-- Panel lateral donde se muestran las guías disponibles -->
+            <aside class="aside">
+
+              <!-- Título del listado de guías -->
+              <h2>Guías Disponibles</h2>
+
+              <!-- Contenedor donde JavaScript cargará las guías -->
+              <div class="card disponibles" id="lista-guias">
+
+                <!-- Mensaje mostrado mientras se cargan las guías -->
+                <p>Cargando guías...</p>
+              </div>
+
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página de ACADEMIX -->
+  <footer class="site-footer">
+    <div class="container"><small>ACADEMIX — Plataforma Educativa</small></div>
+  </footer>
+
+  <!-- Archivo JavaScript encargado de las interacciones generales -->
+  <script src="estudiante-app.js"></script>
+
+  <!-- Script encargado de consultar y mostrar las guías disponibles -->
+  <script>
+fetch("listar_guias.php")
+  .then(response => response.json())
+  .then(guias => {
+
+    // Obtiene el contenedor donde se mostrarán las guías
+    const lista = document.getElementById("lista-guias");
+
+    // Limpia el mensaje de carga inicial
+    lista.innerHTML = "";
+
+    // Comprueba si no existen guías disponibles
+    if (guias.length === 0) {
+      lista.innerHTML = "<p>No hay guías disponibles todavía.</p>";
+      return;
+    }
+
+    // Recorre todas las guías recibidas
+    guias.forEach(guia => {
+
+      // Crea un nuevo elemento para cada guía
+      const item = document.createElement("div");
+
+      // Asigna la clase CSS correspondiente
+      item.className = "guia-item";
+
+      // Construye el contenido de cada guía
+      item.innerHTML = `
+        📚 ${guia.materia} - ${guia.titulo}
+
+        <!-- Botón para abrir el archivo de la guía -->
+        <button class="btn-muted" onclick="window.open('${guia.archivo}', '_blank')">
+          Ver
+        </button>
+      `;
+
+      // Agrega la guía al listado
+      lista.appendChild(item);
+
+    });
+
+  })
+  .catch(error => {
+
+    // Muestra el error en la consola del navegador
+    console.error(error);
+
+    // Muestra un mensaje si no se pudieron cargar las guías
+    document.getElementById("lista-guias").innerHTML =
+      "<p>No se pudieron cargar las guías.</p>";
+  });
+</script>
+
+</body>
+</html>

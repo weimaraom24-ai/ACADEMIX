@@ -1,0 +1,254 @@
+/* Estilos generales del cuerpo de la página */
+body {
+
+    /* Define el color de fondo principal */
+    background-color: lightblue;
+
+}
+
+/* Barra superior de navegación */
+.barra {
+
+  /* Organiza los elementos de la barra de forma horizontal */
+  display: flex;
+
+  /* Distribuye los elementos dejando espacio entre ellos */
+  justify-content: space-between;
+
+  /* Centra los elementos verticalmente */
+  align-items: center;
+
+  /* Define el espacio interno de la barra */
+  padding: 15px 6cqmax; 
+
+  /* Establece el color de fondo de la barra */
+  background-color: rgb(100, 175, 201);
+
+}
+
+/* Contenedor del menú */
+.menu {
+
+  /* Organiza los enlaces del menú horizontalmente */
+  display: flex;
+
+  /* Define el espacio entre cada opción */
+  gap: 60px; 
+
+}
+
+/* Estilos de los enlaces del menú */
+.menu a {
+
+  /* Elimina el subrayado predeterminado de los enlaces */
+  text-decoration: none;
+
+  /* Define el color del texto */
+  color: white;
+
+  /* Establece el grosor de la letra */
+  font-weight: 600;
+
+  /* Define el tamaño de la letra */
+  font-size: 40px; 
+
+  /* Define la fuente utilizada */
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+/* Efecto al pasar el cursor sobre los enlaces */
+.menu a:hover {
+
+  /* Muestra nuevamente el subrayado */
+  text-decoration: underline;
+
+}
+
+/* Estilos para la imagen del logo */
+.logo img {
+
+  /* Define el ancho del logo */
+  width: 120px;
+
+}
+
+/* Configuración general del cuerpo de la página */
+body {
+
+  /* Elimina el margen predeterminado del navegador */
+  margin: 0;
+
+  /* Define la fuente general de la página */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Define el color de fondo */
+  background: lightblue;
+
+}
+
+/* Sección principal de inicio para docentes */
+.inicio-docentes {
+
+  /* Define el espacio interno de la sección */
+  padding: 80px 20px;
+
+}
+
+/* Contenedor principal de la información de docentes */
+.contenedor-docentes {
+
+  /* Establece el ancho máximo del contenedor */
+  max-width: 1000px;
+
+  /* Centra el contenedor horizontalmente */
+  margin: auto;
+
+  /* Define el color de fondo */
+  background-color: white;
+
+  /* Define el espacio interno del contenido */
+  padding: 60px;
+
+  /* Redondea las esquinas del contenedor */
+  border-radius: 25px;
+
+  /* Agrega una sombra alrededor del contenedor */
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+
+  /* Centra el texto */
+  text-align: center;
+
+}
+
+/* Título principal dentro del contenedor */
+.contenedor-docentes h1 {
+
+  /* Define el tamaño del título */
+  font-size: 42px;
+
+  /* Define el espacio debajo del título */
+  margin-bottom: 15px;
+
+  /* Define el color del título */
+  color: #1e3c72;
+
+  /* Agrega separación entre las letras */
+  letter-spacing: 1px;
+
+}
+
+/* Estilos para el subtítulo */
+.subtitulo {
+
+  /* Define el tamaño del texto */
+  font-size: 20px;
+
+  /* Define el color del texto */
+  color: #444;
+
+  /* Define el espacio debajo del subtítulo */
+  margin-bottom: 40px;
+
+  /* Define el grosor de la letra */
+  font-weight: 500;
+
+}
+
+/* Contenedor de la descripción */
+.descripcion {
+
+  /* Define el espacio debajo de la descripción */
+  margin-bottom: 40px;
+
+}
+
+/* Párrafos dentro de la descripción */
+.descripcion p {
+
+  /* Define el tamaño de la letra */
+  font-size: 18px;
+
+  /* Define el espacio entre las líneas */
+  line-height: 1.8;
+
+  /* Define el color del texto */
+  color: #555;
+
+  /* Define el espacio debajo de cada párrafo */
+  margin-bottom: 20px;
+
+  /* Justifica el texto */
+  text-align: justify;
+
+}
+
+/* Contenedor de las áreas o secciones */
+.areas {
+
+  /* Define un color de fondo diferente para destacar la sección */
+  background-color: #f4f7fc;
+
+  /* Define el espacio interno */
+  padding: 30px;
+
+  /* Redondea las esquinas */
+  border-radius: 20px;
+
+}
+
+/* Título de la sección de áreas */
+.areas h2 {
+
+  /* Define el tamaño del título */
+  font-size: 28px;
+
+  /* Define el espacio debajo del título */
+  margin-bottom: 20px;
+
+  /* Define el color del título */
+  color: #2a5298;
+
+}
+
+/* Lista de áreas */
+.areas ul {
+
+  /* Elimina los estilos de viñetas predeterminados */
+  list-style: none;
+
+  /* Elimina el espacio interno predeterminado */
+  padding: 0;
+
+}
+
+/* Elementos individuales de la lista */
+.areas li {
+
+  /* Define el tamaño del texto */
+  font-size: 18px;
+
+  /* Define el espacio vertical entre elementos */
+  margin: 10px 0;
+
+  /* Define el grosor de la letra */
+  font-weight: 500;
+
+  /* Define el color del texto */
+  color: #333;
+
+}
+
+/* Efecto cuando el cursor pasa sobre un elemento de la lista */
+.areas li:hover {
+
+  /* Aumenta ligeramente el tamaño del elemento */
+  transform: scale(1.05);
+
+  /* Define la duración de la transición */
+  transition: 0.3s ease;
+
+  /* Cambia el color del texto */
+  color: #1e3c72;
+
+}
